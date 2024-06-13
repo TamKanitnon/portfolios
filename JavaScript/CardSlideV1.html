@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardslideV1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@100..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Noto Serif Thai", serif;
+        }
+        body {
+            background: #285dd1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body i {
+            font-size: 40px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.1s ease;
+        }
+        body i:active {
+            transform: scale(0.9);
+        }
+        body .left {
+            margin: 20px;
+        }
+        body .right {
+            margin-left: 18px;
+        }
+        .wrapper {
+            /* border: 1px solid black; */
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .wrapper .carousel {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: calc(100% / 3);
+            transition: 0.5s ease;
+        }
+        .carousel :where(.card, .img) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel .card {
+            background: #fff;
+            height: 362px;
+            list-style: none;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            border: 10px solid #285dd1;
+        }
+        .card .img {
+            background: #00ff2a;
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+        }
+        .card .img img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+        .card h2 {
+            font-weight: 500;
+            font-size: 1.56rem;
+            margin: 30px 0 5px;
+        }
+        .card span {
+            color: #6a6d78;
+            font-size: 1.31rem;
+        }
+        .title {
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <i class="bi bi-arrow-left-circle-fill left"></i>
+    <div class="wrapper">
+        <h2 class="title">Card slide 2024, Image No. <span class="count">3</span>/12</h2>
+        <ul class="carousel">
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/untitled-bwqx.png" alt=""></div>
+                <h2>Blanche Pearson</h2>
+                <span>Sales Manager</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/2-bnle.png" alt=""></div>
+                <h2>Joenas Brauers</h2>
+                <span>Web Developer</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/3-jlid.png" alt=""></div>
+                <h2>Lariach French</h2>
+                <span>Online Teacher</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/5-xrva.png" alt=""></div>
+                <h2>James Khosravi</h2>
+                <span>Freelancer</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/4-nfye.png" alt=""></div>
+                <h2>Kristina Zasiadko</h2>
+                <span>Bank Manager</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/6-plei.png" alt=""></div>
+                <h2>Donald Horton</h2>
+                <span>App Designer</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/untitled-bwqx.png" alt=""></div>
+                <h2>Blanche Pearson</h2>
+                <span>Sales Manager</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/2-bnle.png" alt=""></div>
+                <h2>Joenas Brauers</h2>
+                <span>Web Developer</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/3-jlid.png" alt=""></div>
+                <h2>Lariach French</h2>
+                <span>Online Teacher</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/5-xrva.png" alt=""></div>
+                <h2>James Khosravi</h2>
+                <span>Freelancer</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/4-nfye.png" alt=""></div>
+                <h2>Kristina Zasiadko</h2>
+                <span>Bank Manager</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="https://static.workventure.com/uploads/images/blog/6-plei.png" alt=""></div>
+                <h2>Donald Horton</h2>
+                <span>App Designer</span>
+            </li>
+        </ul>
+    </div>
+    <i class="bi bi-arrow-right-circle-fill right"></i>
+
+    <script>
+        const carousel = document.querySelector(".carousel");
+        const btnLeft = document.querySelector(".left");
+        const btnRight = document.querySelector(".right");
+        const count = document.querySelector(".count");
+
+        let imageIndex = 0;
+
+        function slideImage() {
+            console.log(imageIndex);
+            if(imageIndex >= 10) imageIndex = 0;
+            count.innerText = imageIndex + 3;
+            carousel.style.transform = `translateX(-${33.3333 * imageIndex}%)`;
+        }
+
+        let intervalId = setInterval(() => slideImage(++imageIndex), 3000);
+
+        btnLeft.addEventListener("click", (event) => {
+            clearInterval(intervalId);
+            if(imageIndex > 0) slideImage(--imageIndex);
+            intervalId = setInterval(() => slideImage(++imageIndex), 3000);
+        });
+
+        btnRight.addEventListener("click", (event) => {
+            clearInterval(intervalId);
+            if(imageIndex < 9) slideImage(++imageIndex);
+            intervalId = setInterval(() => slideImage(++imageIndex), 3000);
+        });
+    </script>
+</body>
+</html>

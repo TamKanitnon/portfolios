@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoListV1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@100..900&display=swap');
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+        * {
+            font-family: "Noto Serif Thai", serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            background: linear-gradient(#5a95ff 50%, #ff5c5c 50%);
+        }
+        .app {
+            width: min(95vw, 51.25em);
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 1.875em;
+        }
+        .container {
+            padding: 2em 2.5em;
+            background: #f1f8fb;
+            box-shadow: 0 1em 2em rgba(0, 0, 0, 0.3);
+            border-radius: 13px;
+        }
+        #wrapper {
+            position: relative;
+            display: grid;
+            grid-template-columns: 9fr 3fr;
+            gap: 1em;
+        }
+        #wrapper input {
+            width: 100%;
+            background: transparent;
+            color: #111111;
+            border: 1px solid rgb(143, 136, 136);
+            padding: 0.5em 0.5em 0.25em;
+            font-size: 15px;
+        }
+        #wrapper input:focus {
+            outline: none;
+            border: 1px solid black;
+            border-color: #5a95ff;
+            background: #ffffff;
+        }
+        #wrapper button {
+            position: relative;
+            font-weight: 600;
+            font-size: 1em;
+            background: #5a95ff;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        #wrapper button:hover {
+            background: #4582f5;
+        }
+        #wrapper button:active {
+            background: #2d77ff;
+        }
+        #wrapper button i {
+            font-size: 18px;
+            color: white;
+            margin-right: 10px;
+        }
+        #error {
+            text-align: center;
+            color: #ff5c5c;
+            margin-top: 1.5em;
+            display: none;
+        }
+        .task {
+            background: #ffffff;
+            border-radius: 4px;
+            margin-bottom: 18px;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1em 2em rgba(0, 0, 0, 0.1);
+        }
+        .task button i {
+            font-size: 18px;
+            color: white;
+        }
+        .task .edit {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 4px;
+            background: #5a95ff;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .task .edit:hover {
+            background: #4582f5;
+        }
+        .task .edit:active {
+            background: #2d77ff;
+        }
+        .task .delete {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 4px;
+            background: #ff5c5c;
+            cursor: pointer;
+        }
+        .task .delete:hover {
+            background: #fd4545;
+        }
+        .task .delete:active {
+            background: #f72323;
+        }
+        .task .text {
+            border: none;
+            width: 500px;
+            font-size: 15px;
+            /* text-decoration: line-through; */
+        }
+        .task .text:focus {
+            outline: none;
+        }
+        .task .task-check {
+            position: relative;
+            top: 3.5px;
+            width: 18px;
+            height: 18px;
+            margin: 0 8px 0 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="container">
+            <h2 style="margin-bottom: 10px;">Todo list 2024 (There is not local storage.)</h2>
+            <div id="wrapper">
+                <input id="input" type="text" placeholder="Write your task...">
+                <button id="add-btn"><i class="bi bi-plus-square"></i>Add Task</button>
+            </div>
+            <div id="tasks" style="margin: 15px 0;">
+                <p id="pending-tak">You have <span class="count-value">0</span> task(s) to complete.</p>
+            </div>
+            <p id="error">Input cannot be empty!</p>
+
+            <main>
+                <!--
+                <div class="task">
+                    <div>
+                        <input type="checkbox" class="task-check">
+                        <input type="text" class="text" value="Learn JavaScript" readonly>
+                    </div>
+                    <div>
+                        <button class="edit"><i class="bi bi-pencil-square"></i></button>
+                        <button class="delete"><i class="bi bi-trash"></i></button>
+                    </div>
+                </div>
+                -->
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const inputEl = document.querySelector("#input");
+        const addEl = document.querySelector("#add-btn");
+        const mainEl = document.querySelector("main");
+        
+        const countValue = document.querySelector(".count-value");
+        let countTodo = 0;
+
+        addEl.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            if(!input.value) {
+                alert("Input task should not be empty")
+                return;
+            }
+
+            const task_el = document.createElement("div");
+            mainEl.appendChild(task_el);
+            task_el.classList.add("task");
+
+            const left_el = document.createElement("div");
+            task_el.appendChild(left_el);
+
+            const checkbox_el = document.createElement("input");
+            left_el.appendChild(checkbox_el);
+            checkbox_el.classList.add("task-check");
+            checkbox_el.type = "checkbox";
+
+            const text_el = document.createElement("input");
+            left_el.appendChild(text_el);
+            text_el.classList.add("text");
+            text_el.type = "text"
+            text_el.value = input.value;
+            text_el.setAttribute('readonly', 'readonly');
+
+            const right_el = document.createElement("div");
+            task_el.appendChild(right_el);
+
+            const edit_el = document.createElement("button");
+            right_el.appendChild(edit_el);
+            edit_el.classList.add("edit");
+
+            const edit_icon_el = document.createElement("i");
+            edit_el.appendChild(edit_icon_el);
+            edit_icon_el.classList.add("bi");
+            edit_icon_el.classList.add("bi-pencil-square");
+
+            const delete_el = document.createElement("button");
+            right_el.appendChild(delete_el);
+            delete_el.classList.add("delete");
+
+            const delete_icon_el = document.createElement("i");
+            delete_el.appendChild(delete_icon_el);
+            delete_icon_el.classList.add("bi");
+            delete_icon_el.classList.add("bi-trash");
+
+            input.value = "";
+            countTodo = countTodo + 1;
+            countValue.innerText = countTodo;
+
+            delete_el.addEventListener("click", (event) => {
+                mainEl.removeChild(task_el);
+                if(text_el.style.textDecoration != "line-through") {
+                    countTodo = countTodo - 1;
+                    countValue.innerText = countTodo;
+                }
+            });
+
+            edit_el.addEventListener("click", (event) => {
+                if(edit_icon_el.classList.value == "bi bi-pencil-square") {
+                    edit_icon_el.classList.remove("bi-pencil-square");
+                    edit_icon_el.classList.add("bi-floppy2-fill");
+                    text_el.removeAttribute('readonly', 'readonly');
+                    text_el.style.border = "1px solid black";
+                    text_el.style.borderColor = "#5a95ff";
+                    edit_el.style.background = "#11c50a";
+                } else {
+                    edit_icon_el.classList.remove("bi-floppy2-fill");
+                    edit_icon_el.classList.add("bi-pencil-square");
+                    text_el.setAttribute('readonly', 'readonly');
+                    text_el.style.border = "none";
+                    edit_el.style.background = "#5a95ff";
+                }
+            });
+
+            checkbox_el.addEventListener("click", (event) => {
+                if(text_el.style.textDecoration == "line-through") {
+                    text_el.style.textDecoration = "";
+                    countTodo = countTodo + 1;
+                    countValue.innerText = countTodo;
+                } else {
+                    text_el.style.textDecoration = "line-through";
+                    countTodo = countTodo - 1;
+                    countValue.innerText = countTodo;
+                }
+            })
+        });
+    </script>
+</body>
+</html>

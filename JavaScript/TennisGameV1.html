@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TennisGameV1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@100..900&display=swap');
+        * {
+            font-family: "Noto Serif Thai", serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #000000;
+        }
+        #canvas {
+            border: 1px solid black;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Tennis game 2024</h2>
+    <p style="text-align: center; margin-bottom: 14px;">
+        How to play are press key (w = forward), (s = reverse), (a = left), (d = right)
+    </p>
+    <canvas id="canvas" width="1000" height="800"></canvas>
+
+    <script>
+        const ctx = canvas.getContext("2d");
+
+        const ball = {
+            x: canvas.width/2,
+            y: canvas.height/2,
+            r: 10,
+            dx: 0,
+            dy: 0,
+            speed: 4,
+            color: "red"
+        };
+        const human = {
+            w: 80,
+            h: 10,
+            x: 460,
+            y: 690,
+            dx: 5,
+            dy: 5,
+            color: "blue"
+        };
+        const robot = {
+            w: 80,
+            h: 10,
+            x: 460,
+            y: 100,
+            dx: 5,
+            dy: 5,
+            color: "green"
+        };
+        const control = {
+            forward: false,
+            reverse: false,
+            left: false,
+            right: false
+        }
+
+        function lineScale() {
+            // draw x-axiz
+            ctx.moveTo(0, 100);
+            ctx.lineTo(1000, 100);
+            ctx.moveTo(0, 200);
+            ctx.lineTo(1000, 200);
+            ctx.moveTo(0, 300);
+            ctx.lineTo(1000, 300);
+            ctx.moveTo(0, 400);
+            ctx.lineTo(1000, 400);
+            ctx.moveTo(0, 500);
+            ctx.lineTo(1000, 500);
+            ctx.moveTo(0, 600);
+            ctx.lineTo(1000, 600);
+            ctx.moveTo(0, 700);
+            ctx.lineTo(1000, 700);
+            // draw y-axiz
+            ctx.moveTo(100, 0);
+            ctx.lineTo(100, 800);
+            ctx.moveTo(200, 0);
+            ctx.lineTo(200, 800);
+            ctx.moveTo(300, 0);
+            ctx.lineTo(300, 800);
+            ctx.moveTo(400, 0);
+            ctx.lineTo(400, 800);
+            ctx.moveTo(500, 0);
+            ctx.lineTo(500, 800);
+            ctx.moveTo(600, 0);
+            ctx.lineTo(600, 800);
+            ctx.moveTo(700, 0);
+            ctx.lineTo(700, 800);
+            ctx.moveTo(800, 0);
+            ctx.lineTo(800, 800);
+            ctx.moveTo(900, 0);
+            ctx.lineTo(900, 800);
+            ctx.stroke();
+        }
+
+        function textScale() {
+            ctx.fillStyle = "black";
+            // draw y-axiz
+            ctx.fillText("x=100", 67, 12);
+            ctx.fillText("x=200", 167, 12);
+            ctx.fillText("x=300", 267, 12);
+            ctx.fillText("x=400", 367, 12);
+            ctx.fillText("x=500", 467, 12);
+            ctx.fillText("x=600", 567, 12);
+            ctx.fillText("x=700", 667, 12);
+            ctx.fillText("x=800", 767, 12);
+            ctx.fillText("x=900", 867, 12);
+            ctx.fillText("x=1000", 962, 12);
+            // draw y-axiz
+            ctx.fillText("(0, 0)", 4, 12);
+            ctx.fillText("y=100", 4, 95);
+            ctx.fillText("y=200", 4, 195);
+            ctx.fillText("y=300", 4, 295);
+            ctx.fillText("y=400", 4, 395);
+            ctx.fillText("y=500", 4, 495);
+            ctx.fillText("y=600", 4, 595);
+            ctx.fillText("y=700", 4, 695);
+            ctx.fillText("y=800", 4, 795);
+        }
+
+        function drawCircle(data) {
+            ctx.fillStyle = data.color;
+            ctx.beginPath();
+            ctx.arc(data.x, data.y, data.r, 0, 2 * Math.PI, false);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function drawRect(data) {
+            ctx.fillStyle = data.color;
+            ctx.fillRect(data.x, data.y, data.w, data.h);
+        }
+
+        lineScale();
+        textScale();
+        drawCircle(ball);
+        drawRect(human);
+        drawRect(robot);
+
+        document.addEventListener("keydown", (event) => {
+            if(event.key == "w") control.forward = true;
+            if(event.key == "s") control.reverse = true;
+            if(event.key == "a") control.left = true;
+            if(event.key == "d") control.right = true;
+        });
+
+        document.addEventListener("keyup", (event) => {
+            if(event.key == "w") control.forward = false;
+            if(event.key == "s") control.reverse = false;
+            if(event.key == "a") control.left = false;
+            if(event.key == "d") control.right = false;
+        });
+
+        function humanMove() {
+            if(control.forward) {
+                if(human.y > 0) {
+                    human.y = human.y - human.dy;
+                }
+            }
+            if(control.reverse) {
+                if(human.y < 790) {
+                    human.y = human.y + human.dy;
+                }
+            }
+            if(control.left) {
+                if(human.x > 0) {
+                    human.x = human.x - human.dx;
+                }
+            }
+            if(control.right) {
+                if(human.x < 920) {
+                    human.x = human.x + human.dx;
+                }
+            }
+        }
+
+        function ballMove() {
+            // Check that, Does ball touch wall?
+            if(ball.y >= 790) ball.dy = -ball.dy;
+            if(ball.y <= 10)  ball.dy = -ball.dy;
+            if(ball.x >= 990) ball.dx = -ball.dx;
+            if(ball.x <= 10)  ball.dx = -ball.dx;
+
+            // Check that, Does ball touch human?
+            if(human.x < ball.x && ball.x < human.x + 80) {
+                if(human.y - 10 < ball.y && ball.y < human.y) {
+                    ball.dy = -7;
+                    if(control.left)  ball.dx = -4;
+                    if(control.right) ball.dx = +4;
+                }
+            }
+
+            // Check that, Does ball touch robot?
+            if(robot.x < ball.x && ball.x < robot.x + robot.w) {
+                if(ball.y <= robot.y + 20) {
+                    ball.dy = 6;
+                }
+            }
+
+            // Check that, Is it end game?
+            if(ball.y > 790) {
+                ball.dx = 0;
+                ball.dy = 0;
+            }
+
+            ball.x = ball.x + ball.dx;
+            ball.y = ball.y + ball.dy;
+        }
+
+        function robotMove() {
+            robot.x = ball.x - 40;
+        }
+
+        function draw() {
+            // clear old images
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // draw new images
+            lineScale();
+            textScale();
+            drawCircle(ball);
+            drawRect(human);
+            drawRect(robot);
+        }
+
+        function update() {
+            humanMove();
+            ballMove();
+            robotMove();
+            draw();
+
+            requestAnimationFrame(update);
+        }
+
+        update();
+        // setInterval(update, 20);
+    </script>
+</body>
+</html>
