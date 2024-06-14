@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormValidationV1</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            font-family: 'Poppins', sans-serif;
+            height: 40vh;
+        }
+        .container {
+            width: 300px;
+            margin: 50vh auto;
+            transform: translateY(-50%);
+            border-radius: 6px;
+            font-size: 12px;
+            padding: 20px;
+            background: whitesmoke;
+        }
+        .container h1 {
+            text-align: center;
+            color: #0f2027;
+        }
+        .container button {
+            padding: 10px;
+            margin-top: 20px;
+            width: 100%;
+            color: white;
+            background: rgb(41, 57, 194);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container button:active {
+            transform: scale(0.97);
+        }
+        .input-control {
+            /* border: 1px solid white; */
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+        .input-control input {
+            border: 2px solid #e7e0e0;
+            font-size: 16px;
+            padding: 10px;
+            display: block;
+            border-radius: 4px;
+        }
+        .input-control input:focus {
+            outline: 0;
+        }
+        .input-control label {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .input-control input.error {
+            border-color: #ff3860;
+        }
+        .input-control input.success {
+            border-color: #09c372;
+        }
+        .input-control div.error {
+            color: #ff3860;
+            font-size: 13px;
+            height: 13px;
+        }
+        .input-control div.success {
+            color: #09c372;
+            font-size: 13px;
+            height: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+        <form action="" id="form">
+            <div class="input-control">
+                <label>Username:</label>
+                <input type="text" id="username" class="error">
+                <div id="messa" class="error">there are something wrong</div>
+            </div>
+            <div class="input-control">
+                <label>Email:</label>
+                <input type="email" id="email" class="error">
+                <div id="messa" class="error">there are something wrong</div>
+            </div>
+            <div class="input-control">
+                <label>Password:</label>
+                <input type="password" id="password" class="success">
+                <div id="messa" class="success">data completeness</div>
+            </div>
+            <div class="input-control">
+                <label>Confirm password:</label>
+                <input type="password" id="confirm" class="success">
+                <div id="messa" class="success">data completeness</div>
+            </div>
+        </form>
+        <button>Sign Up</button>
+    </div>
+
+    <script>
+        let create = true;
+
+        const input = document.querySelectorAll("input");
+        const messa = document.querySelectorAll("#messa");
+
+        input[0].classList.remove("error");
+        input[1].classList.remove("error");
+        input[2].classList.remove("success");
+        input[3].classList.remove("success");
+
+        messa[0].classList.remove("error");
+        messa[1].classList.remove("error");
+        messa[2].classList.remove("success");
+        messa[3].classList.remove("success");
+
+        messa[0].innerText = "";
+        messa[1].innerText = "";
+        messa[2].innerText = "";
+        messa[3].innerText = "";
+
+        function validateInput() {
+            for(let i = 0; i < input.length; i++) {
+                if(input[i].value) {
+                    input[i].classList.remove("error");
+                    input[i].classList.add("success");
+                    messa[i].classList.remove("error");
+                    messa[i].classList.add("success");
+                    messa[i].innerText = "";
+                } else {
+                    input[i].classList.remove("success");
+                    input[i].classList.add("error");
+                    messa[i].classList.remove("success");
+                    messa[i].classList.add("error");
+                    messa[i].innerText = "message in the input should not be empty";
+                }
+            }
+
+            if(input[2].value != input[3].value) {
+                input[3].classList.remove("success");
+                input[3].classList.add("error");
+                messa[3].classList.remove("success");
+                messa[3].classList.add("error");
+                messa[3].innerText = "confirm password does not match with password";
+            }
+
+            const type = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if(!type.test(String(input[1].value).toLowerCase())) {
+                input[1].classList.remove("success");
+                input[1].classList.add("error");
+                messa[1].classList.remove("success");
+                messa[1].classList.add("error");
+                messa[1].innerText = "this input should be email form";
+            }
+        }
+
+        document.querySelector("button").addEventListener("click", (event) => {
+            validateInput();
+
+            if(create) {
+                for(let i = 0; i < input.length; i++) {
+                    input[i].addEventListener("change", (event) => {
+                        validateInput();
+                    });
+                }
+                create = false; // This callback function, we want to run one time only.
+            }
+        });
+    </script>
+</body>
+</html>

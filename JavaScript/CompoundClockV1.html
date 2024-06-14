@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompoundClockV1</title>
+    <style>
+        /* Analog clock */
+        :root {
+            --main-bg-color: #fff;
+            --main-text-color: #888888;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            /* border: 1px solid black; */
+            margin: 0;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            background: var(--main-bg-color);
+            position: relative;
+            transition: all ease 0.2s;
+        }
+        .page-header {
+            justify-self: flex-start;
+            font-size: 2rem;
+            color: var(--main-text-color);
+            padding-bottom: 2rem;
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            transition: all ease 0.2s;
+        }
+        .analogClock {
+            border: 4px solid var(--main-text-color);
+            min-height: 18em;
+            min-width: 18em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("https://imvpn22.github.io/analog-clock/clock.png");
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+                  inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                        0 15px 15px rgba(0, 0, 0, 0.3),
+                  inset 0 15px 15px rgba(0, 0, 0, 0.3);
+            transition: all ease 0.2s;
+        }
+        .analogClock:before {
+            content: "";
+            height: 0.75rem;
+            width: 0.75rem;
+            background: #285dd1;
+            border: 2px solid var(--main-bg-color);
+            position: absolute;
+            border-radius: 50%;
+            z-index: 10;
+            transition: all ease 0.2s;
+        }
+        .hour, .min, .sec {
+            /* border: 1px solid black; */
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .hour {
+            height: 10em;
+            width: 10em;
+        }
+        .hour:before {
+            background: #285dd1;
+            content: "";
+            height: 50%;
+            width: 8px;
+            border-radius: 8px;
+        }
+        .min {
+            height: 12em;
+            width: 12em;
+        }
+        .min:before {
+            background: #285dd1;
+            content: "";
+            height: 50%;
+            width: 4px;
+            border-radius: 4px;
+        }
+        .sec {
+            height: 14em;
+            width: 14em;
+        }
+        .sec:before {
+            background: #f00;
+            content: "";
+            height: 65%;
+            width: 2px;
+            border-radius: 2px;
+        }
+
+        /* Digital clock */
+        .digitalClock {
+            /* border: 1px solid #285dd1; */
+            margin-top: 50px;
+            position: relative;
+        }
+        .digital-time {
+            font-size: 40px;
+            letter-spacing: 2px;
+            color: #285dd1;
+            border-radius: 5px;
+        }
+        .am-pm {
+            font-size: 20px;
+            font-weight: bold;
+            position: absolute;
+            right: -40px;
+            bottom: 5px;
+            color: #285dd1;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">Compound Clock <span class="ymd">2024-06-14</span></div>
+
+    <div class="analogClock">
+        <div class="hour"></div>
+        <div class="min"></div>
+        <div class="sec"></div>
+    </div>
+
+    <div class="digitalClock">
+        <div class="digital-time">10:51:58</div>
+        <div class="am-pm">AM-PM</div>
+    </div>
+
+    <script>
+        const hour = document.querySelector(".hour");
+        const min = document.querySelector(".min");
+        const sec = document.querySelector(".sec");
+        const digitalTime = document.querySelector(".digital-time");
+        const ampm = document.querySelector(".am-pm");
+        const ymd = document.querySelector(".ymd");
+
+        function formatTime(time) {
+            const format = time < 10 ? `0${time}` : time;
+            return format;
+        }
+
+        function setClock() {
+            const day = new Date();
+
+            const hh = day.getHours();
+            const mm = day.getMinutes();
+            const ss = day.getSeconds();
+
+            // Analog clock
+            hour.style.transform = `rotateZ(${30*hh + 0.5*mm}deg)`;
+            min.style.transform  = `rotateZ(${6*mm + 0.1*ss}deg)`;
+            sec.style.transform  = `rotateZ(${6*ss}deg)`;
+
+            // Digital clock
+            digitalTime.textContent = `${formatTime(hh)}:${formatTime(mm)}:${formatTime(ss)}`;
+            ampm.textContent = hh >= 12 ? "PM" : "AM";
+
+            // Additional yyyy-mm-dd
+            const year = day.getFullYear();
+            const month = day.getMonth();
+            const date = day.getDate();
+
+            ymd.innerHTML = `${formatTime(year)}-${formatTime(month + 1)}-${formatTime(date)}`;
+            ymd.style.color = "#f00";
+        }
+
+        setClock();
+        setInterval(setClock, 1000);
+    </script>
+</body>
+</html>

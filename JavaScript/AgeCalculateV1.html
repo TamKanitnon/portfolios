@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgeCalculateV1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@100..900&display=swap');
+        * {
+            font-family: "Noto Serif Thai", serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: "Montserrat", sans-serif;
+            background: #f7f7f7;
+        }
+        .container {
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+            margin-top: 40vh;
+            transform: translateY(-50%);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            /* font-weight: bold; */
+        }
+        input {
+            border: 1px solid black; 
+            padding: 5px;
+            margin-bottom: 25px;
+            max-width: 300px;
+            width: 100%;
+        }
+        button {
+            background: #328ae7;
+            border: none;
+            color: white;
+            width: 300px;
+            height: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            margin-bottom: 50px;
+        }
+        button:hover {
+            background: #007bff;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        #result {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container border text-center">
+        <h1>Age calculate 2024</h1>
+        <div class="form">
+            <div>
+                <label for="birthday">Enter you date of birth:</label>
+                <input type="date" id="birthday" name="birthday">
+            </div>
+            <button id="button">Calculate age</button>
+            <p id="result">Input your birthday, then I will calculate age for you</p>
+        </div>
+    </div>
+
+    <script>
+        const birthdayEl = document.getElementById("birthday");
+        const buttonEl = document.getElementById("button");
+        const resultEl = document.getElementById("result");
+
+        buttonEl.addEventListener("click", calculeteAge);
+
+        function calculeteAge() {
+            if(birthdayEl.value != "") {
+                const Age = getAge(birthdayEl.value);
+                resultEl.style.color = "red";
+                resultEl.innerText = `Your age is ${Age} ${Age > 1 ? "years" : "year"} old`;
+            } else {
+                alert("Please enter your birthday");
+            }
+        }
+
+        function getAge(birth) {
+            const current = new Date();
+            const birthday = new Date(birth);
+            
+            let year = current.getFullYear() - birthday.getFullYear();
+            let month = birthday.getMonth() - current.getMonth();
+            let day = birthday.getDate() - current.getDate();
+
+            if(month > 0 || (month == 0 && day > 0)) return year - 1;
+            return year;
+        }
+    </script>
+</body>
+</html>

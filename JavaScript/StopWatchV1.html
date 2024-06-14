@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWathchV1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #0cecfb, #65c7f7, #0052d4);
+        }
+        .container {
+            /* border: 1px solid black; */
+            margin-top: 110px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 4em;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+        }
+        p {
+            font-size: 6em;
+            color: #fff;
+        }
+        button {
+            padding: 18px 10px;
+            font-size: 1.2em;
+            width: 180px;
+            margin: 10px;
+            border: 2px solid #fff;
+        }
+        button:hover {
+            cursor: pointer;
+            background: #65c7f7;
+            color: #fff;
+        }
+        button:active {
+            transform: scale(0.95);
+            transition: 0.1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stop watch 2024</h1>
+        <p><span id="minute">00</span>:<span id="second">00</span>:<span id="tens">00</span></p>
+        <button id="btn-start">Start</button>
+        <button id="btn-stop">Stop</button>
+        <button id="btn-reset">Reset</button>
+    </div>
+
+    <script>
+        let tens = 0;
+        let seconds = 0;
+        let minute = 0;
+
+        let intervalId;
+        let running = false;
+
+        const outTens = document.getElementById("tens");
+        const outSecond = document.getElementById("second");
+        const outMinute = document.getElementById("minute");
+
+        const btnStart = document.getElementById("btn-start");
+        const btnStop = document.getElementById("btn-stop");
+        const btnReset = document.getElementById("btn-reset");
+
+        function startCount() {
+            tens = tens + 1;
+            if(tens <= 9) outTens.innerText = `0${tens}`;
+            if(tens >  9) outTens.innerText =  `${tens}`;
+
+            if(tens > 99) {
+                seconds = seconds + 1;
+                tens = 0;
+                outTens.innerText = `0${tens}`;
+            }
+
+            if(seconds <= 9) outSecond.innerText = `0${seconds}`;
+            if(seconds >  9) outSecond.innerText =  `${seconds}`;
+
+            if(seconds > 59) {
+                minute = minute + 1;
+                tens = 0;
+                seconds = 0;
+                outTens.innerText = `0${tens}`;
+                outSecond.innerText = `0${seconds}`;
+            }
+
+            if(minute <= 9) outMinute.innerText = `0${minute}`;
+            if(minute >  9) outMinute.innerText =  `${minute}`;
+        }
+
+        btnStart.addEventListener("click", (event) => {
+            if(!running) intervalId = setInterval(startCount, 10);
+            running = true;
+        });
+
+        btnStop.addEventListener("click", (event) => {
+            clearInterval(intervalId);
+            running = false;
+        });
+
+        btnReset.addEventListener("click", (event) => {
+            clearInterval(intervalId);
+            running = false;
+            tens = 0;
+            seconds = 0;
+            minute = 0;
+            outTens.innerText = `0${tens}`;
+            outSecond.innerText = `0${seconds}`;
+            outMinute.innerText = `0${minute}`;
+        });
+    </script>
+</body>
+</html>
