@@ -17,13 +17,13 @@
             align-items: center;
         }
         .player {
-            height: 80vh;
+            height: 85vh;
             width: 500px;
             display: flex;
             background-color: #ddd;
             box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             border-radius: 20px;
         }
@@ -78,7 +78,7 @@
         .buttons {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .active {
             color: black;
@@ -89,7 +89,7 @@
         .prev-track,
         .next-track {
             padding: 25px;
-            opacity: 0.8;
+            opacity: 0.7;
             transition: 0.2s ease;
             cursor: pointer;
         }
@@ -99,7 +99,6 @@
         .prev-track:hover,
         .next-track:hover {
             opacity: 1;
-            transform: scale(1.05);
         }
         .repeat-track:active,
         .random-track:active,
@@ -109,11 +108,64 @@
             opacity: 1;
             transform: scale(0.8);
         }
-        #wave {
-            border: 1px solid black;
-        }
         .randomActive {
             color: red;
+        }
+        .rotate {
+            animation: rotation 8s infinite linear;
+        }
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .loader {
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loader span {
+            background: #f1f1f1;
+            height: 150%;
+            width: 10px;
+            border-radius: 50px;
+            margin: 0 5px;
+            animation: wave 1.4s linear infinite;
+        }
+        @keyframes wave {
+            50% {
+                height: 20%;
+                background: #4286f4;
+            }
+            100% {
+                background: #4286f4;
+                height: 100%;
+            }
+        }
+        .stroke:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .stroke:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .stroke:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        .stroke:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+        .stroke:nth-child(5) {
+            animation-delay: 0.6s;
+        }
+        .stroke:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+        .stroke:nth-child(7) {
+            animation-delay: 0s;
         }
     </style>
 </head>
@@ -159,13 +211,13 @@
         </div>
 
         <div id="wave">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
+            <span class="stroke"></span>
         </div>
 
         <audio src="../Other/music/Rather Be.mp3"></audio>
