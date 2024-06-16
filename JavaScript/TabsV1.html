@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabsV1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@100..900&display=swap');
+        * {
+            font-family: "Noto Serif Thai", serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #d9e5f9;
+        }
+        .tabs {
+            width: 1050px;
+            height: 350px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 1em 2em rgba(0, 0, 0, 0.3);
+        }
+        .tabs .tab-header {
+            background: #f5f5f5;
+            padding: 10px;
+            display: flex;
+        }
+        .tabs .tab-header > div {
+            position: relative;
+            width: 25%;
+            text-align: center;
+            padding: 10px;
+            z-index: 1;
+            font-weight: 600;
+            color: #888;
+            cursor: pointer;
+        }
+        .tabs .tab-header > div.active {
+            color: #387be2;
+            border-radius: 20px;
+            background: #d9e5f9;
+        }
+        .tabs .tab-indicator {
+            height: 50px;
+            width: calc(10% - 2px);
+            border-radius: 20px;
+            background: #b5caec;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            transition: 0.5s ease;
+        }
+        .tabs .tab-body {
+            background: #f5f5f5;
+            border-top: 1px solid #ddd;
+            position: relative;
+            height: calc(100% - 50px);
+            padding: 10px;
+            overflow: auto;
+        }
+        .tabs .tab-body > div {
+            position: absolute;
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .tabs .tab-body > div.active {
+            transform: translateY(0px);
+            top: 30px;
+            opacity: 1;
+        }
+        .tabs .tab-body h1 {
+            color: #222;
+            margin-bottom: 10px;
+        }
+        .tabs .tab-body p {
+            color: #555;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab-header">
+            <div class="active">Topic1</div>
+            <div>Topic2</div>
+            <div>Topic3</div>
+            <div>Topic4</div>
+            <div>Topic5</div>
+            <div>Topic6</div>
+            <div>Topic7</div>
+            <div>Topic8</div>
+            <div>Topic9</div>
+            <div>Topic10</div>
+        </div>
+        <div class="tab-indicator"></div>
+        <div class="tab-body">
+            <div class="active">
+                <h1>1. Red Ball on the Floor</h1>
+                <P>
+                    The ball is on the floor. It is a red ball. It is a rubber ball. The baby looks at the ball. The cat looks at the ball. The cat is black. The cat walks over to the ball. The cat hits the ball with its paw. The ball rolls on the floor. The baby smiles.
+                </P>
+            </div>
+            <div>
+                <h1>2. Warm Air and a Sandwich</h1>
+                <P>
+                    The window is open. Air comes through the window. It is warm air. It is a warm day. The air smells like bread. It smells like fresh bread. It smells good. It makes the boy hungry. The boy goes to the kitchen. He makes a sandwich. He sits down. He eats the sandwich.
+                </P>
+            </div>
+            <div>
+                <h1>3. He Gets Dressed, Sees His Friend</h1>
+                <P>
+                    The boy puts on his socks. He puts on his shoes. He ties his shoelaces. He walks to the front door. He turns the doorknob. He pulls the door open. He steps outside. He closes the door behind him. He walks to the corner. He sees his friend. He waves to his friend.
+                </P>
+            </div>
+            <div>
+                <h1>4. Noisy Animals, Quiet Animals</h1>
+                <P>
+                    The dog barks. It likes to bark. The bird sings. It likes to sing. The dog and bird are noisy. The cat meows. It meows when it is hungry. It meows when it is angry. The fish says nothing. The turtle says nothing. The mouse says nothing. The lizard says nothing. They are quiet.
+                </P>
+            </div>
+            <div>
+                <h1>5. They Play Catch</h1>
+                <P>
+                    Bob picks up the ball. He throws the ball. Bill catches the ball. Bill throws the ball back. Bob catches the ball. Bob throws the ball to Bill. Bill drops the ball. Bill picks it up. He throws it over Bob’s head. Bob runs back. He jumps up. He catches the ball.
+                </P>
+            </div>
+            <div>
+                <h1>6. Cookie on the Floor</h1>
+                <P>
+                    She takes a cookie out of the package. She drops the cookie. It falls on the floor. The cookie breaks. It breaks into four pieces. Four pieces are on the floor. She picks up the pieces. She takes them to the kitchen. She throws them into the trash can. She takes another cookie out of the package.
+                </P>
+            </div>
+            <div>
+                <h1>7. A Cat and a Dog</h1>
+                <P>
+                    The cat licks its paws. The cat licks its belly. The dog licks its paws. The dog licks its belly. The cat lies in the grass. The dog lies in the grass. The cat rolls onto its back. The dog rolls onto its back. The cat and dog do things together.
+                </P>
+            </div>
+            <div>
+                <h1>8. Hungry for Hot Dogs</h1>
+                <P>
+                    He opens the refrigerator. He looks inside the refrigerator. He is hungry. He wants something to eat. He sees a package. It is a package of hot dogs. Six hot dogs are in the package. He takes two hot dogs out of the package. He closes the refrigerator. He puts the hot dogs on a plate.
+                </P>
+            </div>
+            <div>
+                <h1>9. Her Book and Her Cats</h1>
+                <P>
+                    She picks up the book. It is her favorite book. It has a red cover. It has 52 pages. It has many pictures. It has pictures of many animals. She likes animals. She has two cats. She likes her cats. Their names are Fluffy and Muffy. She shows them the pictures in the book.
+                </P>
+            </div>
+            <div>
+                <h1>10. Kids and Their Teacher</h1>
+                <P>
+                    He has a job. He is a teacher. He teaches kids. He teaches them how to read. He teaches them how to spell. The kids are fast learners. They learn how to read quickly. They learn how to spell quickly. He likes his job. He likes kids. He likes to teach kids new things.
+                </P>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabHeaderNodes = document.querySelectorAll(".tab-header > div");
+        const tabBodyNodes = document.querySelectorAll(".tab-body > div");
+        const tabIndicator = document.querySelector(".tab-indicator");
+
+        for(let i = 0; i < tabHeaderNodes.length; i++) {
+            tabHeaderNodes[i].addEventListener("click", (event) => {
+                for(let j = 0; j < tabHeaderNodes.length; j++) {
+                    tabHeaderNodes[j].classList.remove("active");
+                    tabBodyNodes[j].classList.remove("active");
+                }
+                tabHeaderNodes[i].classList.add("active");
+                tabBodyNodes[i].classList.add("active");
+                tabIndicator.style.left = `calc(calc(calc(10% - 2px) * ${i}) + 10px)`;
+            });
+        }
+    </script>
+</body>
+</html>
