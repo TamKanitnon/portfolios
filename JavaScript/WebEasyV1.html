@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web-example2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto';
+        }
+
+        /* ===================================================================================== */
+
+        .header {
+            /* border: 1px solid black; */
+            background: #2a2a2a;
+            min-width: 1110px;
+        }
+        .header-container {
+            /* border: 1px solid black; */
+            width: 1110px;
+            height: 100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            margin-left: 10px;
+        }
+        .header ul {
+            /* border: 1px solid black; */
+            display: flex;
+        }
+        .header li {
+            /* border: 1px solid black; */
+            list-style: none;
+            margin-left: 40px;
+            margin-right: 10px;
+        }
+        .header a {
+            /* border: 1px solid black; */
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .header a:hover {
+            color: #ff6760;
+        }
+
+        /* ===================================================================================== */
+
+        .section1 {
+            /* border: 1px solid black; */
+            background: #333;
+            min-width: 1110px;
+        }
+        .section1-container {
+            /* border: 1px solid black; */
+            width: 1110px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        .section1 h1 {
+            color: white;
+            font-weight: 300;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .section1 p {
+            /* border: 1px solid white; */
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            padding: 0 130px;
+        }
+        .section1 a {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            background: #ff6760;
+            padding: 10px;
+            display: block;
+            width: 120px;
+            margin: 40px auto;
+            border: 2px solid #333;
+        }
+        .section1 a:hover {
+            background: #333;
+            border: 2px solid white;
+        }
+
+        /* ===================================================================================== */
+
+        .section2 {
+            /* border: 1px solid black; */
+            background: #f8f8f8;
+            min-width: 1110px;
+        }
+        .section2-container {
+            /* border: 1px solid black; */
+            width: 1110px;
+            margin: 0 auto;
+            padding: 80px 0;
+        }
+        .section2-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 5px;
+        }
+        .section2-item {
+            /* border: 1px solid black; */
+            text-align: center;
+            padding: 10px;
+        }
+        .section2-item i {
+            font-size: 50px;
+            margin-bottom: 25px;
+        }
+        .section2-item h3 {
+            margin-bottom: 12px;
+        }
+        .section2-item p {
+            font-size: 14px;
+        }
+
+        /* ===================================================================================== */
+
+        .section3-container {
+            /* border: 1px solid black; */
+            width: 1110px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+        .img-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+        }
+        .img-grid img:hover {
+            transform: scale(1.15);
+            transition: 0.4s;
+        }
+        .text h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .text p {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .text ul {
+            /* border: 1px solid black; */
+            width: 360px;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 50%;
+            transform: translate(-50%);
+            margin-top: 50px;
+            margin-bottom: 40px;
+        }
+        .text li {
+            list-style: none;
+        }
+        .text a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            background: #ff6760;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .text a:hover {
+            background: #333;
+        }
+
+        /* ===================================================================================== */
+
+        .section4 {
+            background: #333;
+            min-width: 1110px;
+        }
+        .section4-container {
+            /* border: 1px solid black; */
+            width: 1110px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+        .section4-container h2 {
+            text-align: center;
+            color: white;
+        }
+        .section4-container p {
+            text-align: center;
+            margin-top: 10px;
+            color: white;
+        }
+        .section4-container ul {
+            /* border: 1px solid black; */
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-left: 50%;
+            transform: translate(-50%);
+        }
+        .section4-container li {
+            list-style: none;
+        }
+        .section4-container li i {
+            color: white;
+            font-size: 30px;
+        }
+
+        /* ===================================================================================== */
+
+        .footer {
+            min-width: 1110px;
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            background: #2a2a2a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-container">
+            <div>
+                <img src="../multimedia/images/web-basic-img/logo.png" alt="">
+            </div>
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">portfolio</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">blog</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section1">
+        <div class="section1-container">
+            <h1>Maximus Automation Co., Ltd.</h1>
+            <p>digital & branding agency based in Jupiter and we would love to turn ideas into beautiful things.</p>
+            <a href="#">SEEPORTFOLIO</a>
+        </div>
+    </div>
+
+    <div class="section2">
+        <div class="section2-container">
+            <div class="section2-grid">
+                <div class="section2-item">
+                    <i class="fa fa-android" aria-hidden="true"></i>
+                    <h3>Consectetur</h3>
+                    <p>Vestibulum id ligula porta  euismod semper. Aenean lacinia bibendum nulla sed consectetur dui.</p>
+                </div>
+                <div class="section2-item">
+                    <i class="fa fa-desktop" aria-hidden="true"></i>
+                    <h3>Tristiquet</h3>
+                    <p>Fusce dapibus, cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo risus.</p>
+                </div>
+                <div class="section2-item">
+                    <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                    <h3>Fermentum</h3>
+                    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum sagittis lacus mollis.</p>
+                </div>
+                <div class="section2-item">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <h3>Elit Ultricies</h3>
+                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Vivamus sagittis lacus vel augue laoreet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section3">
+        <div class="section3-container">
+            <div class="text">
+                <h2>Maximus Automation Co., Ltd.</h2>
+                <p>Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum.</p>
+                <ul>
+                    <li><a href="#">ALL</a></li>
+                    <li><a href="#">GRAPHIC</a></li>
+                    <li><a href="#">ILLUSTRATION</a></li>
+                    <li><a href="#">MOTION</a></li>
+                </ul>
+            </div>
+            <div class="img-grid">
+                <img src="../multimedia/images/web-basic-img/pic01.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic02.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic03.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic04.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic05.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic06.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic07.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic08.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic09.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic10.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic11.jpg" alt="">
+                <img src="../multimedia/images/web-basic-img/pic12.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="section4">
+        <div class="section4-container">
+            <h2>Get in Touch</h2>
+            <p>Vestibulum id ligula porta felis euismod semper,malesuada euismod.</p>
+            <p>
+                <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;
+                Moonshine Street No: 14/05 Light City, Jupiter
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-volume-control-phone" aria-hidden="true"></i>&nbsp;&nbsp;
+                0247-541-65-87
+            </p>
+            <ul>
+                <li><a href="#"><i class="fa fa-wifi" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+            <p>&copy; 2019 Webpaint. All Rights Reserved.</p>
+    </div>
+
+    <script src="https://kit.fontawesome.com/d84655b849.js" crossorigin="anonymous"></script>
+</body>
+</html>

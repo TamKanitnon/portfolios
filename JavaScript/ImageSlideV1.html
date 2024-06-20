@@ -64,9 +64,9 @@
             height: 100%;
             width: 490px;
             display: flex;
-            overflow: hidden;
             box-shadow: 0 1em 2em rgba(10, 0, 0, 0.3);
             border-radius: 15px;
+            overflow: hidden;
         }
         .carousel img {
             height: 100%;
@@ -139,88 +139,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<script>
-    // Get the DOM elements for the image carousel.
-    const wrapper = document.querySelector(".wrapper");
-    const carousel = document.querySelector(".carousel");
-    const imgEl = document.querySelectorAll("img");
-    const btnEl = document.querySelectorAll(".button");
-
-    let imageIndex = 0;
-    let intervalId;
-
-    // Define function to start automatic image slide
-    const autoSlide = () => {
-        // Start the slideshow by calling slideImage() every 3 seconds
-        intervalId = setInterval(() => slideImage(++imageIndex), 3000);
-    };
-
-    // A function that updates the carousel display to show the specidied image
-    const slideImage = () => {
-        if(imageIndex >= 4) {
-            imageIndex = 0;
-        }
-
-        imgEl[0].style.transform = `translateX(-${100*imageIndex}%)`;
-        imgEl[1].style.transform = `translateX(-${100*imageIndex}%)`;
-        imgEl[2].style.transform = `translateX(-${100*imageIndex}%)`;
-        imgEl[3].style.transform = `translateX(-${100*imageIndex}%)`;
-    };
-
-    // Call autoSlide function on page load
-    autoSlide();
-
-    // Manual control image slide left
-    btnEl[0].addEventListener("click", (event) => {
-        clearInterval(intervalId);
-        if(imageIndex > 0) slideImage(--imageIndex)
-        intervalId = setInterval(() => slideImage(++imageIndex), 3000);
-    });
-
-    // Manual control image slide right
-    btnEl[1].addEventListener("click", (event) => {
-        clearInterval(intervalId);
-        if(imageIndex < 3) slideImage(++imageIndex)
-        intervalId = setInterval(() => slideImage(++imageIndex), 3000);
-    });
-</script>
--->

@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700;800&family=Rubik:wght@300;400;500;600&display=swap');
+/* 
+Fonts:
+- Poppins: 300, 400, 600, 700, 800
+- Rubik: 300, 400, 500, 600
+*/
+
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #794afa;
+    --secondary-dark-color: #453c5c;
+
+    --white-color: #ffffff;
+    --light-bh-color: #f2f3f5;
+    --light-text-color: #7c899a;
+    --border-color: #e5e8ec;
+    --bark-color: #0a021c;
+    
+    --font-small: 13px;
+    --font-smaller: 11px;
+
+    --percent100: 100%;
+    --percent50: 50%;
+
+    --fw3: 300;
+    --fw5: 500;
+    --fw6: 600;
+    --fw7: 700;
+    --fw8: 800;
+
+    --trans-background-color: background-color .3s, color .3s;
+    --trans-background: background-color .3s;
+    --trans-color: color .3s;
+}
+
+*,::before,::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--dark-color);
+    background: var(--white-color);
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+ul {
+    list-style: none;
+}
+img {
+    max-width: var(--percent100);
+    vertical-align: middle;
+}
+strong {
+    font-weight: var(--fw8);
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+input::placeholder {
+    font: inherit;
+}
+h1, h2, h3, h4 {
+    font-family: 'Poppins';
+}
+h1 {
+    font-size: calc(1.3em + 1vw);
+}
+h2 {
+    font-size: 2.5em;
+}
+h3 {
+    font-size: 1.2em;
+}
+h4 {
+    font-size: 1em;
+    font-weight: var(--fw6);
+}
+
+/* REUSABLE SELECTORS */
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 0.938em;
+}
+.column {
+    margin-left: -0.938em;
+    margin-right: -0.938em;
+}
+.column .row {
+    padding: 0 0.938em;
+}
+.flexwrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.flexcenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flexitem {
+    display: flex;
+    align-items: center;
+}
+.flexcol {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+/* ----------
+Structure Styling
+00. REUSABLE SELECTORS
+01. HEADER
+    a. Header Top
+    b. Header Nav
+    c. Header Main, Departments Category
+    d. Search Form
+    e. Responsive MENU - Off Canvas
+02. SLIDER
+03. BRANDS
+04. PRODUCT
+    a. Global product
+    b. BIG product
+    c. MINI product
+    d. MAIN product
+05. BANNER
+    a. News Letter
+    b. Widgets
+    c. Footer Info
+06. BOTTOM MENU
+    a. Search
+07. OVERLAY
+08. PAGE SINGLE
+    a. Breadcrumb
+    b. Product details
+    c. Product description
+    d. Product Review
+    e. Product Review From
+09. PAGE SINGLE: SPECIAL OFFER
+10. PAGE CATEGORY
+    a. Sidebar products filter
+    b. Products block
+11. CART
+12. PAGE CART
+13. PAGE CHECKOUT
+14. MODAL
+15. RESPONSIVE
+---------- */
+
+/* RESPONSIVE */
+
+@media screen and (min-width: 992px) {
+    .container {
+        padding: 0 2em;
+    }
+}
