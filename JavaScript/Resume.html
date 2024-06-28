@@ -14,22 +14,56 @@
         }
         .resume {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 6fr 6fr;
             grid-gap: 20px;
             width: 100%;
         }
-        .resume-sub {
+        .resume-sub0 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 5fr 5fr 2fr;
             grid-gap: 10px;
+        }
+        .resume-sub1 {
+            display: grid;
+            grid-template-columns: 3fr 9fr;
+            grid-gap: 10px;
+            border-bottom: 1px solid black;
+            padding-bottom: 30px;
+            margin-bottom: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+        .resume-sub1 .right img {
+            border: 3px solid rgb(56, 94, 175);
+            border-radius: 50%;
+            padding: 5px;
         }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <h2>Kanitnon Tiptananon</h1>
-        <p><b>CONTACT:</b> 061-057-6060 (Tam)</p>
-        <hr>
+        <div class="resume-sub1">
+            <div class="right">
+                <img src="../Multimedia/images/kanitnon.jpg" alt="" width="200">
+            </div>
+            <div class="left">
+                <h2>Kanitnon Tiptananon</h2>
+                <ul>
+                    <li>Position: <b>Fullstack Developer</b></li>
+                    <li>General: 28 Aug 1990, 171 cm, 56 kg</li>
+                    <li>Tel: 061-057-6060 (Tam)</li>
+                    <li>Email: TamKanitnon@gmail.com</li>
+                    <li>Language: <a href="./English.html">English (TOEIC 640)</a>, Thai (Native)</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="resume">
             <div class="left">
                 <h4>ABOUT ME</h4>
@@ -37,23 +71,21 @@
                     I am intersted in web development. I have been working on a lot of personal projects to gain experience, 
                     and now I believe I am ready to work in a real job to gain practical experience.
                 </p>
-                <hr>
     
                 <h4>EDUCATION</h4>
                 <h6>King Mongkut's University Of Technology North Bangkok (KMUTNB), Bangkok</h6>
                 <p>
-                    B.Eng (Electrical & Computer Engineering) <br>
-                    Expected 2017, GPAX 2.74
+                    B.Eng. (Electrical & Computer Engineering) <br>
+                    Expected in 2017 GPAX 2.74
                 </p>
-                <h6>Saengthong Vittaya, Hatyai</h6>
+                <h6>Buriram Technical College</h6>
                 <p>
-                    Sci Math Computer Engineering Program <br>
-                    2018 - 2021, GPAX 2.77
+                    Vocational Certificate Power Electrician <br>
+                    2009 - 2012, GPAX 2.77
                 </p>
-                <hr>
     
                 <h4>SKILL</h4>
-                <div class="resume-sub">
+                <div class="resume-sub0">
                     <div class="left">
                         <h6>Languages:</h6>
                         <ul>
@@ -71,11 +103,10 @@
                     <div class="right">
                         <h6>Tools:</h6>
                         <ul>
-                            <li>Git & Github</li>
+                            <li>Github</li>
                             <li>Docker</li>
                             <li>Linux (CLI)</li>
                             <li>Agile</li>
-                            <li>Google Cloud (GCP)</li>
                         </ul>
                         <h6>Databases:</h6>
                         <ul>
@@ -84,48 +115,38 @@
                         </ul>
                     </div>
                 </div>
-                <hr>
     
                 <h4>ACHEVEMENT</h4>
-                <h6>Hightech coding challenge 2024</h6>
-                <p>Qualified and currently in competition</p>
-                <h6>Thailand Olympiad in informatics 2021</h6>
-                <p>Participate in the final national competition</p>
-                <h6>National software contest 2021 & 2020</h6>
-                <p>Participate in the final national competition</p>
+                <h6>ABU robot award. 2013</h6>
+                <p>In 2013, I got ABU robot award.
+                    It's award about using
+                    mathematics solve the problem
+                    of omni wheel movement. And,
+                    it made robot of our team
+                    moves in 2 dimension smoothly
+                    and all direction.
+                </p>
             </div>
     
             <div class="right">
                 <h4>EXPERIENCE</h4>
-                <h6>KUTECH Club, KU</h6>
-                <h6>Co-Founder & Vice President Activity Team</h6>
+                <h6>REALTECH COMPANY LIMITED</h6>
+                <h6>Fullstack Developer</h6>
                 <p>
                     Feb 2022 - Current <br>
-                    Collaborate with core team members to develop innovative activites and events about technology in KMUTNB
+                    Hired to write front-end and back-end systems for general websites.
                 </p>
-                <h6>Office of Academin Services and Intellectual Property, KMUTNB Work Scholarships, Part time job</h6>
-                <p>
-                    July 2022 - December 2022 <br>
-                    Develop TypeScript program to classification financial document using OCR system from scanned document <br>
-                    Tools: TypeScript, Tesseract OCE, Google Colab
-                </p>
-                <hr>
     
                 <h4>PROJECTS</h4>
-                <h6>Novel Landing page</h6>
-                <li>As part of the Dek-D Front end Developer Intern Challenge, Built frontend web page about novel landing page and bookmark system</li>
-                <p>Tools: VueJS, NuxtJS, NestJS</p>
-                <h6>Anime Review</h6>
-                <li>As part of the database systems course, Built web application for search, review and discuss about anime</li>
-                <p>Tools: VueJS, NuxtJS, NestJS</p>
-                <h6>My-Probsolve-Score</h6>
-                <li>To solve pain point for problem solving course, Built web application to tracking scores in problem solving subjects for Kasetsart computer engineering students</li>
-                <p>Tools: VueJS, NuxtJS, NestJS</p>
-                <hr>
-    
+                <li><b>Online Entertainment</b> Used to find service providers who drink alcohol, go out, eat food, and talk to relieve loneliness.</li>
+                <p>Tools: NuxtJS, NestJS <a href="https://tamkanitnon.github.io/portfolios/">https://tamkanitnon.github.io/portfolios/</a></p>
+                <li><b>E-Commerce</b> This project is used for searching, ordering, and paying on the internet.</li>
+                <p>Tools: HTML, CSS, JavaScript <a href="https://tamkanitnon.github.io/portfolios/">https://tamkanitnon.github.io/portfolios/</a></p>
+                <li><b>Todo List</b> This project is used for recording each to-do list, which is more convenient than writing it down on paper.</li>
+                <p>Tools: NuxtJS, NestJS <a href="https://tamkanitnon.github.io/portfolios/">https://tamkanitnon.github.io/portfolios/</a></p>
+
                 <h4>ACTIVITY</h4>
-                <p><b>KU Hackathon 2023</b> President of the project, Lead Organizer Collab with (KMUTNB) to organize a hackathon</p>
-                <p><b>Seedzero Camp 2023</b> Participants Bootcamp Frontend, Backend, Game developm;ent and Data science</p>
+                <p><b>IRAP Robot</b> During my studies, I was one of the microcontroller programming teams in the club.</p>
             </div>
         </div>
     </div>
