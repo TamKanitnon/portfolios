@@ -5,14 +5,272 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CardsLuckyGameV1</title>
     <style>
-
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@100..900&display=swap');
+        * {
+            font-family: "Noto Serif Thai", serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .grid-container {
+            /* border: 1px solid black; */
+            max-height: 500px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            justify-content: center;
+            grid-gap: 16px;
+            grid-template-columns: repeat(6, 140px);
+            grid-template-rows: repeat(2, calc(140px / 2 * 3));
+            margin-top: 50px;
+            position: relative;
+        }
+        .card {
+            border: 1px solid rgb(56, 49, 49);
+            height: calc(140px / 2 * 3);
+            width: 140px;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.5s linear;
+            
+            float: left;
+            width: 177px;
+            height: 249px;
+            cursor: pointer;
+            
+            position: absolute;
+            right: -140px;
+            bottom: -200px;
+            margin: 30px 0 15px 15px;
+            --offset: 14px;
+            
+            &.ani0 {
+                right: calc(989px + var(--offset));
+                bottom: 166px;
+            }
+            &.ani1 {
+                right: calc(792px + var(--offset));
+                bottom: 166px;
+            }
+            &.ani2 {
+                right: calc(595px + var(--offset));
+                bottom: 166px;
+            }
+            &.ani3 {
+                right: calc(398px + var(--offset));
+                bottom: 166px;
+            }
+            &.ani4 {
+                right: calc(201px + var(--offset));
+                bottom: 166px;
+            }
+            &.ani5 {
+                right: calc(4px + var(--offset));
+                bottom: 166px;
+            }
+        }
+        .card:hover {
+            transform: translateY(20px);
+        }
+        .front-image {
+            width: 70px;
+            height: 70px;
+        }
+        .card.flipped-show {
+            transform: rotateY(180deg);
+        }
+        .card.flipped {
+            transform: rotateY(180deg) translateY(50%);
+            box-shadow: 0px 0px 2px 2px rgb(48, 235, 48);
+            background: rgb(241, 250, 241);
+        }
+        .front, .back {
+            backface-visibility: hidden;
+            position: absolute;
+            border-radius: 10px;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .card .front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotateY(180deg);
+        }
+        .card .back {
+            /* background-image: url("https://www.thairath.co.th/static/img/horoscope/tarot/tarot-card-back.jpg"); */
+            background-image: url("https://f.ptcdn.info/632/036/000/nwlgl2ndmpovwAe1yYT-o.jpg");
+            background-position: center center;
+            background-size: cover;
+            backface-visibility: hidden;
+        }
+        .title {
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .title .award {
+            border: 1px solid rgb(90, 88, 88);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .title .award.active {
+            box-shadow: 0px 0px 2px 2px rgb(48, 235, 48);
+            background: rgb(241, 250, 241);
+        }
+        #result {
+            color: black;
+            text-align: center;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>Cards lucky gmae 2024</h1>
 
+    <div class="title">
+        <div class="award">
+            <img src="../multimedia/images/grapes.png" alt="" class="front-image">
+            <h3>฿ 10</h3>
+        </div>
+        <div class="award">
+            <img src="../multimedia/images/lemon.png" alt="" class="front-image">
+            <h3>฿ 100</h3>
+        </div>
+        <div class="award">
+            <img src="../multimedia/images/watermelon.png" alt="" class="front-image">
+            <h3>฿ 1,000</h3>
+        </div>
+        <div class="award">
+            <img src="../multimedia/images/orange.png" alt="" class="front-image">
+            <h3>฿ 10,000</h3>
+        </div>
+        <div class="award">
+            <img src="../multimedia/images/pineapple.png" alt="" class="front-image">
+            <h3>฿ 100,000</h3>
+        </div>
+        <div class="award">
+            <img src="../multimedia/images/tomato.png" alt="" class="front-image">
+            <h3>฿ 1,000,000</h3>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="card">
+            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="back"></div>
+        </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-        
+        $(".card").each(function(e) {
+            setTimeout(function() {
+                $(".card").eq(e).attr("class", "card ani" + e);
+            }, e * 150)
+        });
+
+        const card = document.querySelectorAll('.card');
+        const award = document.querySelectorAll('.award');
+        const result = document.querySelector('h1');
+        const cards = [
+            {
+                image: "../multimedia/images/watermelon.png",
+                name: "watermelon"
+            },
+            {
+                image: "../multimedia/images/grapes.png",
+                name: "grapes"
+            },
+            {
+                image: "../multimedia/images/orange.png",
+                name: "orange"
+            },
+            {
+                image: "../multimedia/images/lemon.png",
+                name: "lemon"
+            },
+            {
+                image: "../multimedia/images/tomato.png",
+                name: "tomato"
+            },
+            {
+                image: "../multimedia/images/pineapple.png",
+                name: "pineapple"
+            }
+        ];
+
+        function shuffleCards() {
+            let currentIndex = cards.length;
+            let randomIndex, temporaryValue;
+
+            while(currentIndex != 0) {
+                randomIndex = Math.floor(currentIndex * Math.random());
+                currentIndex = currentIndex - 1;
+                temporaryValue = cards[currentIndex];
+                cards[currentIndex] = cards[randomIndex];
+                cards[randomIndex] = temporaryValue;
+            }
+        }
+        shuffleCards();
+
+        for(let i = 0; i < card.length; i++) {
+            card[i].querySelector('img').src = cards[i].image;
+        }
+
+        for(let i = 0; i < card.length; i++) {
+            card[i].addEventListener('click', () => {
+                card[i].classList.toggle('flipped');
+                
+                for(let j = 0; j < award.length; j++) {
+                    if(award[j].querySelector('img').src == card[i].querySelector('img').src) {
+                        award[j].classList.toggle('active');
+                        const money = award[j].querySelector('h3').innerText;
+                        result.innerText = `Congratulations, you receive award to be money ${money} bath.`;
+                    }
+                }
+                
+                setTimeout(() => {
+                    for(let i = 0; i < card.length; i++) {
+                        card[i].classList.add('flipped-show');
+                    }
+                }, 1000);
+            });
+        }
     </script>
 </body>
 </html>
