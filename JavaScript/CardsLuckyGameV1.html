@@ -134,7 +134,7 @@
     </style>
 </head>
 <body>
-    <h1>Cards lucky gmae 2024</h1>
+    <h1>Cards lucky game 2024</h1>
 
     <div class="title">
         <div class="award active">
@@ -282,7 +282,6 @@
                 for(let j = 0; j < cardsEl.length; j++) {
                     const imgEl = cardsEl[j].querySelector('img');
                     imgEl.src = cards[data[j]].image;
-                    console.log(j, data[j], imgEl, imgEl.src);
                 }
 
                 cardsEl[i].classList.toggle('flipped');
@@ -291,6 +290,8 @@
                     for(let j = 0; j < cardsEl.length; j++) {
                         cardsEl[j].classList.add('flipped-show');
                     }
+                    let money = awardEl[buffer[result]].querySelector('h3').innerText;
+                    messageEl.innerText = `Congratulations!!! You received award is money ${money} bath`;
                 }, 1000);
             });
         }
