@@ -17,7 +17,7 @@
             margin-top: 50px;
         }
         .grid-container {
-            /* border: 1px solid black; */
+            border: 1px solid black;
             max-height: 500px;
             max-width: 1200px;
             margin: 0 auto;
@@ -106,8 +106,7 @@
             transform: rotateY(180deg);
         }
         .card .back {
-            /* background-image: url("https://www.thairath.co.th/static/img/horoscope/tarot/tarot-card-back.jpg"); */
-            background-image: url("https://f.ptcdn.info/632/036/000/nwlgl2ndmpovwAe1yYT-o.jpg");
+            background-image: url("https://www.thairath.co.th/static/img/horoscope/tarot/tarot-card-back.jpg");
             background-position: center center;
             background-size: cover;
             backface-visibility: hidden;
@@ -132,26 +131,21 @@
             box-shadow: 0px 0px 2px 2px rgb(48, 235, 48);
             background: rgb(241, 250, 241);
         }
-        #result {
-            color: black;
-            text-align: center;
-            font-size: 20px;
-        }
     </style>
 </head>
 <body>
     <h1>Cards lucky gmae 2024</h1>
 
     <div class="title">
-        <div class="award">
+        <div class="award active">
             <img src="https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/watermelon.png?raw=true" alt="" class="front-image">
             <h3>฿ 10</h3>
         </div>
-        <div class="award">
+        <div class="award active">
             <img src="https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/grapes.png?raw=true" alt="" class="front-image">
             <h3>฿ 100</h3>
         </div>
-        <div class="award">
+        <div class="award active">
             <img src="https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/orange.png?raw=true" alt="" class="front-image">
             <h3>฿ 1,000</h3>
         </div>
@@ -171,73 +165,36 @@
 
     <div class="grid-container">
         <div class="card">
-            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="front"><img src="" class="front-image"></div>
             <div class="back"></div>
         </div>
         <div class="card">
-            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="front"><img src="" class="front-image"></div>
             <div class="back"></div>
         </div>
         <div class="card">
-            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="front"><img src="" class="front-image"></div>
             <div class="back"></div>
         </div>
         <div class="card">
-            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="front"><img src="" class="front-image"></div>
             <div class="back"></div>
         </div>
         <div class="card">
-            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="front"><img src="" class="front-image"></div>
             <div class="back"></div>
         </div>
         <div class="card">
-            <div class="front"><img src="" alt="" class="front-image"></div>
+            <div class="front"><img src="" class="front-image"></div>
             <div class="back"></div>
         </div>
     </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-        $(".card").each(function(e) {
-            setTimeout(function() {
-                $(".card").eq(e).attr("class", "card ani" + e);
-            }, e * 150)
-        });
-
-        const card = document.querySelectorAll('.card');
-        const award = document.querySelectorAll('.award');
-        const result = document.querySelector('h1');
-        const cards = [
-            {
-                image: "https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/watermelon.png?raw=true",
-                name: "watermelon"
-            },
-            {
-                image: "https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/grapes.png?raw=true",
-                name: "grapes"
-            },
-            {
-                image: "https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/orange.png?raw=true",
-                name: "orange"
-            },
-            {
-                image: "https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/lemon.png?raw=true",
-                name: "lemon"
-            },
-            {
-                image: "https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/tomato.png?raw=true",
-                name: "tomato"
-            },
-            {
-                image: "https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/pineapple.png?raw=true",
-                name: "pineapple"
-            }
-        ];
-
-        function shuffleCards() {
+        function shuffleCards(cards) {
             let currentIndex = cards.length;
             let randomIndex, temporaryValue;
-
             while(currentIndex != 0) {
                 randomIndex = Math.floor(currentIndex * Math.random());
                 currentIndex = currentIndex - 1;
@@ -245,28 +202,94 @@
                 cards[currentIndex] = cards[randomIndex];
                 cards[randomIndex] = temporaryValue;
             }
-        }
-        shuffleCards();
-
-        for(let i = 0; i < card.length; i++) {
-            card[i].querySelector('img').src = cards[i].image;
+            return cards;
         }
 
-        for(let i = 0; i < card.length; i++) {
-            card[i].addEventListener('click', () => {
-                card[i].classList.toggle('flipped');
-                
-                for(let j = 0; j < award.length; j++) {
-                    if(award[j].querySelector('img').src == card[i].querySelector('img').src) {
-                        award[j].classList.toggle('active');
-                        const money = award[j].querySelector('h3').innerText;
-                        result.innerText = `Congratulations, you receive award to be money ${money} bath.`;
+        function changeCards(want, cards, choose) {
+            for(let i = 0; i < cards.length; i++) {
+                if(want === cards[i]) {
+                    cards[i] = cards[choose];
+                    cards[choose] = want;
+                }
+            }
+            return cards;
+        }
+    </script>
+    <script>
+        $(".card").each(function(e) {
+            setTimeout(function() {
+                $(".card").eq(e).attr("class", "card ani" + e);
+            }, e * 150)
+        });
+
+        const cardsEl = document.querySelectorAll('.card');
+        const awardEl = document.querySelectorAll('.award');
+        const messageEl = document.querySelector('h1');
+
+        let cards = [
+            {
+                image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/watermelon.png?raw=true',
+                name: 'watermelon'
+            },
+            {
+                image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/grapes.png?raw=true',
+                name: 'grapes'
+            },
+            {
+                image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/orange.png?raw=true',
+                name: 'orange'
+            },
+            {
+                image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/lemon.png?raw=true',
+                name: 'lemon'
+            },
+            {
+                image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/tomato.png?raw=true',
+                name: 'tomato'
+            },
+            {
+                image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/pineapple.png?raw=true',
+                name: 'pineapple'
+            }
+        ];
+        
+        let data = [0, 1, 2, 3, 4, 5];
+        let select = [true, true, true, false, false, false];
+        let buffer = [];
+        let result;
+
+        for(let i = 0; i < awardEl.length; i++) {
+            awardEl[i].addEventListener('click', () => {
+                awardEl[i].classList.toggle('active');
+                select[i] = !select[i];
+            });
+        }
+
+        for(let i = 0; i < cardsEl.length; i++) {
+            cardsEl[i].addEventListener('click', () => {
+                if(!buffer.length) {
+                    for(let j = 0; j < data.length; j++) {
+                        if(select[j]) {
+                            buffer.push(data[j]);
+                        }
                     }
                 }
-                
+
+                result = Math.floor(Math.random() * buffer.length);
+                data = shuffleCards(data);
+                data = changeCards(buffer[result], data, i)
+
+                for(let j = 0; j < cardsEl.length; j++) {
+                    const imgEl = cardsEl[j].querySelector('img');
+                    imgEl.src = cards[data[j]].image;
+                    console.log(j, data[j], imgEl, imgEl.src);
+                }
+
+                cardsEl[i].classList.toggle('flipped');
+
                 setTimeout(() => {
-                    for(let i = 0; i < card.length; i++) {
-                        card[i].classList.add('flipped-show');
+                    for(let j = 0; j < cardsEl.length; j++) {
+                        cardsEl[j].classList.add('flipped-show');
                     }
                 }, 1000);
             });
