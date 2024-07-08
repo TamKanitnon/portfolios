@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebEasyV2</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun';
+        }
+
+        /* ===================================================================================== */
+
+        header {
+            /* border: 1px solid black; */
+            background-color: #fcdb00;
+        }
+        .header-container {
+            /* border: 1px solid black; */
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #fcdb00;
+        }
+        .header {
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 0;
+        }
+        .header img {
+            /* border: 1px solid black; */
+            margin-left: 20px;
+        }
+        .header ul {
+            /* border: 1px solid black; */
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .header ul li {
+            /* border: 1px solid black; */
+            margin-left: 70px;
+            list-style: none;
+        }
+        .header ul li a {
+            /* border: 1px solid black; */
+            text-decoration: none;
+            color: black;
+            font-weight: 900;
+            font-size: 22px;
+        }
+        .header-grid {
+            /* border: 1px solid black; */
+            padding-bottom: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .item-text {
+            /* border: 1px solid black; */
+            width: 420px;
+            margin-top: 50px;
+            margin-left: 20px;
+        }
+        .item-text h1 {
+            /* border: 1px solid black; */
+            margin-bottom: 22px;
+        }
+        .item-text .big {
+            /* border: 1px solid black; */
+            font-size: 22px;
+            margin-bottom: 22px;
+        }
+        .item-text .small {
+            /* border: 1px solid black; */
+            margin-bottom: 36px;
+        }
+        .item-text .icon {
+            /* border: 1px solid black; */
+            list-style: none;
+            display: flex;
+        }
+        .item-text .icon i {
+            /* border: 1px solid black; */
+            color: black;
+            margin-right: 40px;
+            font-size: 44px;
+        }
+        .item-img {
+            /* border: 1px solid black; */
+            margin-left: 130px;
+        }
+
+        /* ===================================================================================== */
+
+        .tinyone {
+            /* border: 1px solid black; */
+            background-color: whitesmoke;
+        }
+        .tinyone-container {
+            /* border: 1px solid black; */
+            width: 1000px;
+            margin: 0 auto;
+            background-color: whitesmoke;
+        }
+        .tinyone-features {
+            border: 1px solid whitesmoke;
+            width: 800px;
+            margin: 0 auto 80px;
+        }
+        .tinyone-features h1 {
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 12px;
+        }
+        .tinyone-features p {
+            font-size: 20px;
+            text-align: center;
+        }
+        .tinyone-grid {
+            margin-left: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+
+        .tinyone-grid-item {
+            /* border: 1px solid black; */
+            display: flex;
+            margin-bottom: 80px;
+        }
+        .tinyone-grid-item .icon {
+            /* border: 1px solid black; */
+            width: 80px;
+        }
+        .tinyone-grid-item .icon i {
+            font-size: 50px;
+            margin-top: 5px;
+            /* margin-left: 50%;
+            transform: translate(-50%); */
+        }
+        .tinyone-grid-item .text {
+            /* border: 1px solid black; */
+            width: 250px;
+        }
+        .tinyone-grid-item .text h2 {
+            /* border: 1px solid black; */
+            margin-bottom: 12px;
+        }
+
+        /* ===================================================================================== */
+
+        footer {
+            /* border: 1px solid black; */
+            background-color: black;
+        }
+        .footer-container {
+            border: 1px solid black;
+            width: 1000px;
+            margin: 0 auto;
+            background-color: black;
+        }
+        .footer {
+            /* border: 1px solid white; */
+            width: 800px;
+            margin: 80px auto 140px;
+        }
+        .footer h1 {
+            /* border: 1px solid white; */
+            text-align: center;
+            color: #fcdb00;
+            margin-bottom: 20px;
+        }
+        .footer p {
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        .footer .email {
+            /* border: 1px solid white; */
+            display: flex;
+            justify-content: space-between;
+            width: 750px;
+            margin-bottom: 60px;
+        }
+        .footer .email input[type="text"] {
+            font-size: 22px;
+            width: 580px;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .footer .email input[type="submit"] {
+            font-size: 22px;
+            width: 120px;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #fcdb00;
+        }
+        .footer .email input[type="submit"]:hover {
+            cursor: pointer;
+            background-color: #c9ae00;
+            font-weight: 900;
+        }
+        .footer ul {
+            /* border: 1px solid white; */
+            width: 300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer ul li {
+            list-style: none;
+        }
+        .footer i {
+            font-size: 40px;
+            color: #fcdb00;
+        }
+        .other {
+            /* border: 1px solid white; */
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+        .other p {
+            /* border: 1px solid white; */
+            color: white;
+            margin-left: 20px;
+        }
+        .other-grid {
+            /* border: 1px solid white; */
+            width: 650px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        .other-grid a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header">
+                <img src="../Multimedia/images/web-basic-img/logo2.png" alt="">
+                <ul>
+                    <li><a href="">หน้าแรก</a></li>
+                    <li><a href="">สินค้าและบริการ</a></li>
+                    <li><a href="">ผลงาน</a></li>
+                    <li><a href="">ติดต่อ</a></li>
+                </ul>
+            </div>
+            
+            <div class="header-grid">
+                <div>
+                    <div class="item-text">
+                        <h1>Maximus Automation Co., Ltd.</h1>
+                    <p class="big">
+                        Simple to use for your app, products
+                        showcase and your inspiration
+                    </p>
+                    <p class="small">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Praesent vitae eros eget tellus tristique bibendum. Donec 
+                        rutrum sed sem quis venenatis. Proin viverra risus a eros 
+                        volutpat tempor. In quis arcu et eros porta lobortis sit
+                    </p>
+                    <ul class="icon">
+                        <li><a href="#"><i class="fa-brands fa-apple"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-android"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-windows"></i></a></li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="item-img">
+                    <img src="../Multimedia/images/web-basic-img/ipad.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="tinyone">
+        <div class="tinyone-container">
+            <div class="tinyone-features">
+                <h1>บริษัท แม็คซิมัส ออโตเมชั่น จำกัด</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Praesent vitae eros eget tellus tristique bibendum. 
+                    Donec rutrum sed sem quis venenatis.
+                </p>
+            </div>
+            <div class="tinyone-grid">
+                <div class="tinyone-grid-item">
+                    <div class="icon">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <div class="text">
+                        <h2>Fully Responsive</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Praesent vitae eros eget tellus tristique bibendum.
+                        </p>
+                    </div>
+                </div>
+                <div class="tinyone-grid-item">
+                    <div class="icon">
+                        <i class="fa-regular fa-lemon"></i>
+                    </div>
+                    <div class="text">
+                        <h2>Fully Layered PSD</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Praesent vitae eros eget tellus tristique bibendum.
+                        </p>
+                    </div>
+                </div>
+                <div class="tinyone-grid-item">
+                    <div class="icon">
+                        <i class="fa-regular fa-folder"></i>
+                    </div>
+                    <div class="text">
+                        <h2>Font Awesome Icons</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Praesent vitae eros eget tellus tristique bibendum.
+                        </p>
+                    </div>
+                </div>
+                <div class="tinyone-grid-item">
+                    <div class="icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <div class="text">
+                        <h2>HTML3 & CSS3</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Praesent vitae eros eget tellus tristique bibendum.
+                        </p>
+                    </div>
+                </div>
+                <div class="tinyone-grid-item">
+                    <div class="icon">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <div class="text">
+                        <h2>Email Template</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Praesent vitae eros eget tellus tristique bibendum.
+                        </p>
+                    </div>
+                </div>
+                <div class="tinyone-grid-item">
+                    <div class="icon">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+                    <div class="text">
+                        <h2>Free to download</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Praesent vitae eros eget tellus tristique bibendum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer">
+                <h1>Keep in touch with us</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Praesent vitae eros eget tellus tristique bibendum. 
+                    Donec rutrum sed sem quis venenatis.
+                </p>
+                <div class="email">
+                    <input type="text" placeholder="Enter your email to update">
+                    <input type="submit" value="submit">
+                </div>
+                <ul>
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="other">
+                <p>
+                    HaLOVIETNAM Co., Ltd. <br>
+                    66, Dang Van ngu, Dong Da <br>
+                    Hanoi, Vietnam <br>
+                    contact@halovietnam.com <br>
+                    +844-351-4918-2
+                </p>
+                
+                <div class="other-grid">
+                    <ul>
+                        <li><a href="#">Examples</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">License</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Download</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Documents</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://kit.fontawesome.com/d84655b849.js" crossorigin="anonymous"></script>
+</body>
+</html>

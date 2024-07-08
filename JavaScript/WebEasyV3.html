@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebEasyV3</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center, dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+            font-family: 'Lato', sans-serif;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        /* ==================== header ==================== */
+
+        .container {
+            /* border: 1px solid black; */
+            max-width: 1000px;
+            width: 98%;
+            margin: 0 auto;
+        }
+        header {
+            /* border: 1px solid black; */
+            width: 100%;
+            height: 600px;
+            background: url("../Multimedia/images/web-basic-img/header-bg.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        nav {
+            /* border: 1px solid black; */
+            display: flex;
+            height: 80px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu-tab {
+            /* border: 1px solid black; */
+            width: 90px;
+            height: 70px;
+            position: absolute;
+            z-index: 100;
+            top: 0px;
+            right: 10%;
+            cursor: pointer;
+            transition: 0.6s;
+        }
+        .menu-tab div {
+            /* border: 1px solid black; */
+            width: 33px;
+            height: 4px;
+            background: #fff;
+            display: block;
+            margin: 5px 28px;
+            transition: 0.6s;
+        }
+        .menu-tab div:nth-child(1) {
+            /* border: 1px solid black; */
+            margin-top: 20px;
+        }
+        .menu-tab.active {
+            right: 345px;
+            transition: 0.6s;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .menu-hide {
+            /* border: 1px solid black; */
+            width: 345px;
+            right: -345px;
+            height: 100vh;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            transition: 0.6s;
+        }
+        .menu-hide ul li {
+            /* border: 1px solid black; */
+            height: 70px;
+            list-style: none;
+            text-align: center;
+            line-height: 70px;
+            transition: 0.5s;
+        }
+        .menu-hide ul li:hover {
+            background: #fd4f32;
+        }
+        .menu-hide ul li a {
+            /* border: 1px solid black; */
+            padding: 30px 25px;
+            text-decoration: none;
+            color: #f1f1f1;
+            font-weight: 700;
+        }
+        .menu-hide.show {
+            right: 0;
+            background: rgba(255, 255, 255, 0.2);
+            transition: 0.6s;
+        }
+        .header_search {
+            /* border: 1px solid black; */
+            display: flex;
+            height: 500px;
+            justify-content: center;
+            align-items: center;
+        }
+        .search_box {
+            /* border: 1px solid black; */
+            text-align: center;
+        }
+        .search_box h1 {
+            /* border: 1px solid black; */
+            color: #fff;
+            font-weight: 300;
+            font-size: 4rem;
+        }
+        .search_bar {
+            /* border: 1px solid black; */
+            margin-top: 2em;
+            display: flex;
+            justify-content: center;
+        }
+        .search_bar input, .search_bar button {
+            /* border: 1px solid black; */
+            border: none;
+            outline: none;
+            padding: 1em 3em;
+        }
+        .search_bar button {
+            /* border: 1px solid black; */
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 700;
+            background: #fd4f32;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+        .search_bar button:hover {
+            background: #da452c;
+        }
+
+        /* ==================== destinations ==================== */
+
+        .destinations {
+            /* border: 1px solid black; */
+            width: 100%;
+            /* height: 525px; */
+            background: #eee;
+            overflow: hidden;
+        }
+        .destinations_title {
+            /* border: 1px solid black; */
+            margin-top: 3em;
+        }
+        .destinations_title h3 {
+            /* border: 1px solid black; */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .destinations_title p {
+            /* border: 1px solid black; */
+            margin-top: 0.5em;
+            color: #8b8b8b;
+        }
+        .destinations_grid {
+            /* border: 1px solid black; */
+            margin-top: 3em;
+            margin-bottom: 3em;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 1em;
+        }
+        .destinations_items figure {
+            /* border: 1px solid black; */
+            position: relative;
+        }
+        .destinations_items figure span.price {
+            /* border: 1px solid black; */
+            font-size: 0.8em;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+        }
+        .destinations_items figure img {
+            /* border: 1px solid black; */
+            width: 100%;
+        }
+        .destinations_items figure figcaption {
+            /* border: 1px solid black; */
+            padding: 0.8em;
+            height: 120px;
+            background: #fff;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+        .destinations_items figure figcaption h3 {
+            /* border: 1px solid black; */
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .destinations_items figure figcaption p {
+            /* border: 1px solid black; */
+            color: #8b8b8b;
+            margin-top: 0.8em;
+            line-height: 1.2;
+        }
+
+        /* ==================== before_leave ==================== */
+
+        .before_leave {
+            /* border: 1px solid black; */
+            width: 100%;
+            /* height: 540px; */
+            background: #fff;
+            overflow: hidden;
+        }
+        .before_leave_c {
+            /* border: 1px solid black; */
+            margin-top: 4em;
+            margin-bottom: 3em;
+        }
+        .before_leave_c h1 {
+            /* border: 1px solid black; */
+            font-size: 4em;
+            font-weight: 300;
+        }
+        .before_leave_grid {
+            /* border: 1px solid black; */
+            margin-top: 4em;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 3em;
+        }
+        .before_leave_items h3 {
+            /* border: 1px solid black; */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .before_leave_items p {
+            /* border: 1px solid black; */
+            margin-top: 1em;
+            color: #8b8b8b;
+            line-height: 1.5;
+        }
+        .subscribe {
+            /* border: 1px solid black; */
+            margin-top: 5em;
+            text-align: center;
+        }
+        .subscribe h3 {
+            /* border: 1px solid black; */
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .subscribe_box {
+            display: flex;
+            justify-content: center;
+            margin-top: 1em;
+        }
+        .subscribe_box input, .subscribe_box button {
+            /* border: 1px solid black; */
+            border: none;
+            outline: none;
+            padding: 1em 3em;
+        }
+        .subscribe_box input {
+            /* border: 1px solid black; */
+            background: #eee;
+        }
+        .subscribe_box button {
+            /* border: 1px solid black; */
+            color: #fff;
+            background: #fd4f32;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+        .subscribe_box button:hover {
+            background: #da452c
+        }
+
+        /* ==================== footer ==================== */
+
+        footer {
+            /* border: 1px solid black; */
+            width: 100%;
+            /* height: 75px; */
+            background: #eee;
+        }
+        .footer_copy {
+            /* border: 1px solid black; */
+            height: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .copyright {
+            /* border: 1px solid black; */
+            color: #8b8b8b;
+        }
+        ul.footer_menu {
+            /* border: 1px solid black; */
+            display: flex;
+        }
+        ul.footer_menu li {
+            /* border: 1px solid black; */
+            margin-left: 1em;
+        }
+        ul.footer_menu li a { 
+            /* border: 1px solid black; */
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            transition: 0.4s;
+        }
+        ul.footer_menu li a:hover {
+            color: #666;
+        }
+
+        /* ==================== repossive ==================== */
+
+        @media screen and (max-width: 768px) {
+            .logo {
+                /* border: 1px solid black; */
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .destinations_grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            .travelly {
+                background: #fd4f32;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo travelly">
+                    <img src="../Multimedia/images/web-basic-img/logo3.png" alt="">
+                </div>
+
+                <div class="menu-tab">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="menu-hide">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="header_search">
+                <div class="search_box">
+                    <h1>Where will you go next ?</h1>
+                    <form action="" class="search_bar">
+                        <input type="text" placeholder="Start typing...">
+                        <button type="submit">Go</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="destinations">
+        <div class="container">
+            <div class="destinations_container">
+                <div class="destinations_title">
+                    <h3>Top destinations</h3>
+                    <p>Some of the top destinations for your next summer adventure.</p>
+                </div>
+                <div class="destinations_grid">
+                    <div class="destinations_items">
+                        <figure>
+                            <img src="../Multimedia/images/web-basic-img/pic1.jpg" alt="">
+                            <span class="price">$1,095</span>
+                            <figcaption>
+                                <h3>Amazing Australia</h3>
+                                <p>Become inspired to travel to Australia. Discover fantastic things to do & places to go.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="destinations_items">
+                        <figure>
+                            <img src="../Multimedia/images/web-basic-img/pic2.jpg" alt="">
+                            <span class="price">$1,295</span>
+                            <figcaption>
+                                <h3>Ancient South America</h3>
+                                <p>Become inspired to travel to South America. Discover fantastic things to do & places to go.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="destinations_items">
+                        <figure>
+                            <img src="../Multimedia/images/web-basic-img/pic3.jpg" alt="">
+                            <span class="price">$695</span>
+                            <figcaption>
+                                <h3>Modern North America</h3>
+                                <p>Become inspired to travel to North America. Discover fantastic things to do & places to go.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="destinations_items">
+                        <figure>
+                            <img src="../Multimedia/images/web-basic-img/pic4.jpg" alt="">
+                            <span class="price">$295</span>
+                            <figcaption>
+                                <h3>Classic europe</h3>
+                                <p>Become inspired to travel to Europe. Discover fantastic things to do & places to go.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="before_leave">
+        <div class="container">
+            <div class="before_leave_c">
+                <h1>Before you leave</h1>
+                <div class="before_leave_grid">
+                    <div class="before_leave_items">
+                        <h3>visa & documents</h3>
+                        <p>
+                            There are some things you should take
+                            care of before going to your next
+                            adventure. We'll help you to get
+                            required visas and documents needed.
+                        </p>
+                    </div>
+                    <div class="before_leave_items">
+                        <h3>visa & documents</h3>
+                        <p>
+                            There are some things you should take
+                            care of before going to your next
+                            adventure. We'll help you to get
+                            required visas and documents needed.
+                        </p>
+                    </div>
+                    <div class="before_leave_items">
+                        <h3>visa & documents</h3>
+                        <p>
+                            There are some things you should take
+                            care of before going to your next
+                            adventure. We'll help you to get
+                            required visas and documents needed.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="subscribe">
+                    <h3>get hottest deals to your inbox</h3>
+                    <div class="subscribe_box">
+                        <input type="text" placeholder="Email address">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer_copy">
+                <div class="copyright">
+                    <p>Copyright © 2014 Travelly. All Rights Reserved. Designed for Despreneur.</p>
+                </div>
+                <ul class="footer_menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var menutab = document.querySelector(".menu-tab");
+        var menuhide = document.querySelector(".menu-hide");
+        menutab.addEventListener("click", function () {
+            menuhide.classList.toggle('show');
+            menutab.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -63,3 +63,68 @@ searchBottom.addEventListener('click', () => {
 closeBottom.addEventListener('click', () => {
     displaySearch.style.display = 'none';
 });
+
+// show dpt menu
+const dptButton = document.querySelector('.dpt-cat .dpt-trigger');
+const dptClass = document.querySelector('.site');
+
+dptButton.addEventListener('click', () => {
+    dptClass.classList.toggle('show-dpt');
+})
+
+// product image slider
+var productThumb = new Swiper('.small-image', {
+    loop: true,
+    spaceBetween: 10,
+    slidesPerView: 3,
+    freeMode: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+        481: {
+            spaceBetween: 32,
+        }
+    }
+});
+var productBig = new Swiper('.big-image', {
+    loop: true,
+    autoHeight: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    },
+    thumbs: {
+        swiper: productThumb
+    }
+});
+
+// stock products bar width percentage
+let stocks = document.querySelectorAll('.products .stock');
+for(let x = 0; x < stocks.length; x++) {
+    let stock = stocks[x].dataset.stock;
+    let sold = stocks[x].querySelector('.qty-sold').innerHTML;
+    let available = stocks[x].querySelector('.qty-available');
+    let percent = 100*sold/stock;
+    available.innerHTML = stock - sold;
+    stocks[x].querySelector('.available').style.width = percent + '%';
+}
+
+// show cart on click
+const divtoShow = '.mini-cart';
+const divPopup = document.querySelector(divtoShow);
+const divTrigger = document.querySelector('.cart-trigger');
+
+divTrigger.addEventListener('click', () => {
+    setTimeout(() => {
+        if(!divPopup.classList.contains('show')) {
+            divPopup.classList.add('show');
+        }
+    }, 250);
+});
+
+// close by click outside
+document.addEventListener('click', (event) => {
+    const isClosest = event.target.closest(divtoShow);
+    if(!isClosest && divPopup.classList.contains('show')) {
+        divPopup.classList.remove('show');
+    } 
+});

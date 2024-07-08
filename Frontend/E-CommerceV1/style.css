@@ -220,11 +220,12 @@ Structure Styling
     a. Search
 07. OVERLAY
 08. PAGE SINGLE
-    a. Breadcrumb
-    b. Product details
-    c. Product description
-    d. Product Review
-    e. Product Review From
+    a. Department Menu
+    b. Breadcrumb
+    c. Product details
+    d. Product description
+    e. Product Review
+    f. Product Review From
 09. PAGE SINGLE: SPECIAL OFFER
 10. PAGE CATEGORY
     a. Sidebar products filter
@@ -336,7 +337,8 @@ Structure Styling
     line-height: 10px;
     color: var(--white-color);
 }
-nav .fly-item {
+nav .fly-item,
+.header-nav .mini-cart .price .fly-item {
     top: 50%;
     margin-top: -24px;
     width: 35px;
@@ -1066,11 +1068,697 @@ form.search button:hover {
     opacity: 1;
 }
 
-/* RESPONSIVE */
+/* 08. PAGE SINGLE */
+
+
+
+/* 08. PAGE SINGLE
+    a. Department Menu */
+
+.page-home .dpt-cat .dpt-trigger,
+.dpt-trigger .ri-close-line,
+.show-dpt .dpt-trigger .ri-menu-3-line {
+    display: none;
+}
+.show-dpt .dpt-trigger .ri-close-line {
+    display: block;
+}
+
+/* 08. PAGE SINGLE
+    b. Breadcrumb */
+
+.breadcrumb {
+    font-size: var(--font-small);
+    margin-bottom: 2em;
+}
+.breadcrumb li:not(:last-child)::after {
+    content: '/';
+    padding: 0 0.35em;
+}
+.breadcrumb li:last-child {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--light-text-color);
+}
+
+/* 08. PAGE SINGLE
+    c. Product details */
+
+.products.one .item {
+    flex-direction: column;
+}
+.products.one .price .discount {
+    font-size: 1em;
+    font-weight: var(--fw7);
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    padding: 1em;
+    background: var(--dark-color);
+    color: var(--white-color);
+    border-radius: var(--percent50);
+    margin: 0.5em;
+}
+.products.one :where(.big-image, .small-image) {
+    overflow: hidden;
+}
+.products.one .big-image {
+    position: relative;
+    margin-bottom: 1em;
+}
+.products.one :where(.big-image, .small-image) img {
+    object-fit: cover;
+    width: var(--percent100);
+    height: var(--percent100);
+    display: block;
+}
+.products.one .thumbnail-show {
+    position: relative;
+    width: 130px;
+    height: 110px;
+    overflow: hidden;
+    margin: 0 2em 2em 0;
+}
+.products :is(.swiper-button-next, .swiper-button-prev) {
+    outline: 0;
+    color: var(--secondary-dark-color);
+    transition: var(--trans-background), transform 0.3s;
+}
+.products .big-image:hover .swiper-button-next {
+    transform: translateX(10px);
+}
+.products .big-image:hover .swiper-button-prev {
+    transform: translateX(-10px);
+}
+.products :is(.swiper-button-next, .swiper-button-prev)::after {
+    font-size: 1.5em;
+}
+.products .big-image:hover :is(.swiper-button-next, .swiper-button-prev) {
+    background: var(--light-bg-color)
+}
+
+/* 08. PAGE SINGLE
+    d. Product description */
+
+.products.one .available {
+    background: var(--light-bg-color);
+    font-size: var(--font-small);
+    font-weight: var(--fw5);
+    padding: 0.5em;
+    margin-right: 1em;
+    border-radius: 3px;
+    color: #10ac84;
+}
+.products.one .add-review {
+    color: var(--dark-color);
+}
+.products.one .price {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.products.one .price .current {
+    font-size: 2.5em;
+}
+.products .variant form {
+    display: flex;
+    margin-top: 0.5em;
+}
+.products .variant form p {
+    position: relative;
+    margin: 0 0.5em 0.5em;
+}
+.products :where(.variant, .actions) .circle {
+    display: block;
+    position: static;
+    top: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+:where(.products .variant, .filter-block:not(.pricing)) input {
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
+}
+.products .variant label::before {
+    opacity: 1;
+}
+.products .variant label[for="cogrey"]::before {
+    background: #576574;
+}
+.products .variant label[for="coblue"]::before {
+    background: #45a0ff;
+}
+.products .variant label[for="cogreen"]::before {
+    background: #1dd1a1;
+}
+.single-product .variant form p input:checked + label {
+    background: transparent;
+    border: 2px solid var(--dark-color);
+    color: var(--white-color);
+}
+.products .sizes .variant label::before {
+    background: var(--white-color);
+}
+.products .sizes .variant label span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--percent100);
+    height: var(--percent100);
+    font-size: 0.85em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.single-product .sizes .variant form p input:checked + label::before {
+    background: var(--dark-color);
+    opacity: 1;
+}
+.products .actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+.products .qty-control {
+    border: 1px solid var(--border-color);
+    width: fit-content;
+    padding: 0.5em;
+    margin: 0 2em 2em 0;
+}
+.products .actions :where(input, button) {
+    font-size: 1.25em;
+    outline: 0;
+    border: 0;
+}
+.products .actions input {
+    width: 50px;
+    text-align: center;
+}
+.products .qty-control button::before {
+    background: transparent;
+}
+.products .actions .button-cart {
+    flex: 1;
+    min-width: 200px;
+}
+.products .actions .button-cart button {
+    width: var(--percent100);
+    cursor: pointer;
+}
+.wish-share a {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: var(--fw7);
+    margin: 1em 2em 1em 0;
+    transition: var(--trans-color);
+}
+
+/* 08. PAGE SINGLE
+    e. Product Review */
+
+.products .collapse .has-child > a {
+    position: relative;
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+    padding: 1em 1.25em;
+    border-top: 1px solid var(--border-color);
+    gap: 1em;
+    align-items: flex-start;
+}
+.products .collapse .has-child > a::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+}
+.products .collapse .content {
+    margin: 0 0 1.5em 2em;
+    font-size: var(--font-small);
+}
+.products .collapse .content li span:first-child {
+    min-width: 100px;
+    display: inline-flex;
+    font-weight: var(--fw7);
+    text-transform: uppercase; 
+}
+.products .collapse table {
+    line-height: 3em;
+}
+.products .collapse table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid var(--dark-color);
+}
+.products .collapse table :where(th, td) {
+    border-bottom: 1px solid var(--border-color);
+    padding-left: 2em;
+}
+.products .collapse .content {
+    display: none;
+}
+.products .collapse .expand .content {
+    display: flex;
+}
+.products .collapse .expand > a::before {
+    content: '-';
+}
+.products .reviews h4 {
+    font-size: 2em;
+    color: var(--light-text-color);
+    padding-top: 1em;
+    margin: 1em 0 0.5em;
+    border-top: 1px solid var(--border-color);
+}
+.products .review-block {
+    color: initial;
+}
+.products .review-block-head > a {
+    display: block;
+    font-size: 1.25em;
+    width: var(--percent100);
+    margin-top: 1em;
+    text-align: center;
+}
+.products .review-block-head .rate-sum {
+    position: relative;
+    font-size: 4em;
+    font-weight: var(--fw7);
+    padding-right: 0.5em;
+}
+.products .review-block-head .rate-sum::before {
+    background: var(--light-bg-color);
+    content: '';
+    width: 5px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 13px;
+    transform: rotate(22deg);
+}
+.products .review-block-body .item {
+    gap: 1em;
+    padding-bottom: 2.5em;
+    margin-top: 3.5em;
+}
+.products .review-block-body :where(.person, .review-title) {
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+}
+.products .review-block-body :where(.review-title, .view-all) {
+    font-size: 1.25em;
+    justify-content: end;
+}
+.products .review-block-body .item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 08. PAGE SINGLE
+    f. Product Review From */
+
+.review-form .rating {
+    flex-wrap: wrap;
+}
+.review-form p {
+    font-size: 1.25em;
+    margin-right: 1em;
+}
+.review-form .rate-this input {
+    display: none;
+}
+.review-form .rate-this label {
+    float: right;
+    font-size: 2em;
+    color: var(--secondary-dark-color);
+}
+.rate-this > input:checked ~ label,
+.rate-this:not(:checked) > label:hover,
+.rate-this:not(:checked) > label:hover ~ label {
+    color: #f1c40e;
+    cursor: pointer;
+}
+.rate-this > input:checked + label:hover,
+.rate-this > input:checked ~ label:hover,
+.rate-this > label:hover ~ input:checked ~ label,
+.rate-this > input:checked ~ label:hover ~ label {
+    color: #ffed85;
+}
+.review-form form {
+    margin-top: 2.5em;
+}
+form p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+form :where(input, textarea) {
+    border: 1px solid var(--border-color);
+    line-height: 1;
+    padding: 1em;
+    outline: 0;
+}
+form label {
+    font-weight: var(--fw5);
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+}
+
+/* 09. PAGE SINGLE: SPECIAL OFFER */
+
+.page-single .stock {
+    margin: 2em 0;
+}
+.page-single .stock .qty span:last-child {
+    color: initial;
+}
+.single-product .stock .bar {
+    height: 10px;
+}
+.page-single .stock .bar .available {
+    margin: 0;
+    border-radius: 0;
+    background: var(--secondary-dark-color);
+}
+.related-products .content {
+    height: var(--percent100);
+}
+.related-products .offer {
+    margin: 0;
+}
+.related-products .offer p {
+    margin: 0 1em 0 0;
+    text-transform: none;
+    line-height: 1;
+}
+.related-products .offer ul li {
+    width: 28px;
+    height: 28px;
+    font-size: var(--font-small);
+    padding: 0.5em 0.25em;
+}
+.related-products .content .stock {
+    margin-top: auto;
+}
+
+/* 10. PAGE CATEGORY */
+
+.single-category .holder {
+    display: flex;
+    flex-direction: column;
+}
+.single-category .sidebar,
+.single-category .section {
+    flex: 1 0 100%;
+}
+
+/* 10. PAGE CATEGORY
+    a. Sidebar products filter */
+
+.filter-block {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+}
+.filter-block:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+.filter-block h4 {
+    font-size: 1.25em;
+    margin-bottom: 0.5em;
+}
+.filter-block li {
+    display: flex;
+    font-size: 0.9em;
+    position: relative;
+    line-height: 2;
+}
+.filter-block label .checked {
+    border: 1px solid var(--secondary-dark-color);
+    width: 16px;
+    height: 16px;
+    position: relative;
+    line-height: 0;
+    display: inline-block;
+    vertical-align: text-top;
+    margin: 0 7px 0 0;
+    cursor: pointer;
+}
+.filter-block label .checked::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--secondary-dark-color);
+    top: 2px;
+    left: 2px;
+    opacity: 0;
+}
+.filter-block input:checked + label .checked::before {
+    opacity: 1;
+}
+.filter-block li .count {
+    margin-left: auto;
+    color: var(--light-text-color);
+}
+.bycolor label[for="cored"]::before {
+    background: var(--primary-color);
+}
+.bycolor label[for="colight"]::before {
+    background: var(--border-color);
+}
+.bycolor input:checked + label {
+    background: transparent;
+    border: 2px solid var(--dark-color);
+}
+input[type="range"] {
+    /* -webkit-appearance: none; */
+    appearance: none;
+    width: var(--percent100);
+}
+input[type="range"]:focus {
+    outline: 0;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    width: var(--percent100);
+    height: 5px;
+    cursor: pointer;
+    background: var(--border-color);
+    box-shadow: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+    z-index: 2;
+    position: relative;
+    height: 18px;
+    width: 14px;
+    background: var(--primary-color);
+    /* -webkit-appearance: none; */
+    appearance: none;
+    margin-top: -7px;
+}
+.byprice .price-range {
+    display: flex;
+    justify-content: space-between;
+    color: var(--light-text-color);
+    margin-top: 0.5em;
+}
+
+/* 10. PAGE CATEGORY
+    b. Head & Products block */
+
+.page-title {
+    margin-bottom: 3em;
+}
+.cat-description p {
+    font-size: 0.9em;
+    font-weight: var(--fw3);
+}
+.cat-navigation {
+    font-size: 0.85em;
+    margin: 2em 0;
+    justify-content: flex-end;
+    gap: 1em;
+}
+.cat-navigation .item-filter {
+    margin-right: auto;
+}
+.cat-navigation > div {
+    position: relative;
+}
+.cat-navigation .item-filter a {
+    align-items: center;
+    text-transform: uppercase;
+}
+.cat-navigation ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    min-width: var(--percent100);
+    width: max-content;
+    z-index: 10;
+}
+.cat-navigation .label,
+.cat-navigation ul li {
+    display: flex;
+    gap: 0.5em;
+    padding: 0.5em 1em;
+    transition: var(--trans-color);
+}
+:where(.item-sortir, .item-options) .label,
+.cat-navigation ul {
+    color: var(--light-text-color);
+    background: var(--light-bg-color);
+    cursor: pointer;
+}
+.cat-navigation :where(label, ul li):hover {
+    color: var(--dark-color);
+}
+:where(.item-sortir, .item-options):hover ul {
+    display: block;
+}
+.load-more {
+    margin: 2em 0 4em;
+}
+.filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 2em;
+    max-width: 400px;
+    width: 90%;
+    background: var(--white-color);
+    overflow: auto;
+    z-index: 1000;
+    box-shadow: rgb(0 0 0 / 30%) 0 10px 50px;
+    visibility: hidden;
+    opacity: 0;
+}
+.filter.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 11. CART */
+
+.mini-cart {
+    background: var(--white-color);
+    box-shadow: rgb(0 0 0 / 30%) 0 10px 50px;
+    z-index: 1000;
+    position: absolute;
+    width: 400px;
+    top: 100%;
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
+}
+.iscart:hover .mini-cart {
+    visibility: visible;
+    opacity: 1;
+}
+.mini-cart .products img {
+    transform: none;
+}
+.mini-cart ul :where(li, .price) {
+    position: relative;
+}
+.mini-cart .content {
+    width: var(--percent100);
+    height: var(--percent100);
+    touch-action: auto;
+    padding: 1.5em;
+}
+.mini-cart .cart-head {
+    font-size: 1.5em;
+    font-weight: var(--fw5);
+    color: var(--light-text-color);
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--border-color);
+}
+.mini-cart .cart-body {
+    padding: 0 1.5em;
+    margin: 0 -1.5em;
+    max-height: 450px;
+    overflow: auto;
+}
+.mini-cart .thumbnail {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    margin-right: 1em;
+}
+.mini-cart .item-content p {
+    font-size: var(--font-small);
+    font-weight: var(--fw5);
+    margin-bottom: 1.5em;
+    line-height: 1.2;
+}
+.mini-cart .item-remove {
+    margin-left: 1em;
+    flex: 1;
+    justify-content: flex-end;
+}
+.mini-cart .subtotal {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    margin-bottom: 2em;
+    border-top: 1px solid var(--border-color);
+}
+.mini-cart .subtotal p:last-child {
+    font-size: 2em;
+}
+.mini-cart .actions a {
+    display: block;
+    width: var(--percent100);
+    text-align: center;
+    margin-bottom: 1em;
+}
+.mini-cart.show {
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    max-width: 400px;
+    width: 90%;
+}
+
+/* 12. PAGE CART */
+
+
+
+/* 13. PAGE CHECKOUT */
+
+
+
+/* 14. MODAL */
+
+
+
+/* 15. RESPONSIVE */
 
 @media screen and (min-width: 481px) {
     .products.main .item {
         flex: 0 0 50%;
+    }
+
+    /* page single */
+    .products.one .big-image {
+        margin-bottom: 2em;
+    }
+    .products.one .image-show {
+        height: 600px;
+    }
+    .products.one .thumbnail-show {
+        height: 160px;
     }
 }
 
@@ -1085,6 +1773,14 @@ form.search button:hover {
     }
     .products.main .item {
         flex: 0 0 33.3333%;
+    }
+    .products.one .row {
+        flex: 0 0 50%;
+        width: 50%;
+    }
+    .products.one .is_sticky {
+        position: sticky;
+        top: 2em;
     }
 }
 
@@ -1263,5 +1959,40 @@ form.search button:hover {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    /* Page Single */
+    #page:not(.page-home) .dpt-menu {
+        display: none;
+    }
+    #page.show-dpt .dpt-menu {
+        display: block;
+    }
+    .products.one .flexwrap > .row:last-child > .item {
+        padding-left: 2em;
+    }
+
+    /* Page Category */
+    .single-category .holder {
+        flex-direction: row;
+    }
+    .single-category .sidebar {
+        flex: 1 0 25%;
+    }
+    .single-category .section {
+        flex: 1 0 75%;
+    }
+    .single-category .sidebar .filter {
+        padding: 0 1.5em 0 0;
+        position: sticky;
+        top: 2em;
+        box-shadow: none;
+        width: var(--percent100);
+        z-index: initial;
+        visibility: visible;
+        opacity: 1;
+    }
+    .single-category .products.main .item {
+        flex: 0 0 33.3333%;
     }
 }

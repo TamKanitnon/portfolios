@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <div id="page" class="site">
+    <div id="page" class="site page-home">
         <!-- insize start -->
         <aside class="site-off desktop-hide">
             <div class="off-canvas">
@@ -72,10 +72,10 @@
                     <div class="wrapper flexitem">
                         <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
                         <div class="left flexitem">
-                            <div class="logo"><a href=""><span class="circle"></span>.Store</a></div>
+                            <div class="logo"><a href="index.html"><span class="circle"></span>.Store</a></div>
                             <nav class="mobile-hide">
                                 <ul class="flexitem second-links">
-                                    <li><a href="">Home</a></li>
+                                    <li><a href="index.html">Home</a></li>
                                     <li><a href="">Shop</a></li>
                                     <li class="has-child">
                                         <a href="">
@@ -186,17 +186,104 @@
                                         <div class="fly-item"><span class="item-number">0</span></div>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="iscart">
                                     <a href="" class="iscart">
                                         <div class="icon-large">
                                             <i class="ri-shopping-cart-line"></i>
-                                            <div class="fly-item"><span class="item-number">0</span></div>
+                                            <div class="fly-item"><span class="item-number">5</span></div>
                                         </div>
                                         <div class="icon-text">
                                             <div class="mini-text">Total</div>
-                                            <div class="cart-total">$0.00</div>
+                                            <div class="cart-total">$1,622.95</div>
                                         </div>
                                     </a>
+
+                                    <div class="mini-cart">
+                                        <div class="content">
+                                            <div class="cart-head">
+                                                5 items in cart
+                                            </div>
+                                            <div class="cart-body">
+                                                <ul class="products mini">
+                                                    <li class="item">
+                                                        <div class="thumbnail object-cover">
+                                                            <a href="#"><img src="assets/products/home1.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <p><a href="#">Dimmable Ceiling Light Modern</a></p>
+                                                            <span class="price">
+                                                                <span>$279.99</span>
+                                                                <span class="fly-item"><span>2x</span></span>
+                                                            </span>
+                                                        </div>
+                                                        <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                    </li>
+                                                    <li class="item">
+                                                        <div class="thumbnail object-cover">
+                                                            <a href="#"><img src="assets/products/home2.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <p><a href="#">Dimmable Ceiling Light Modern</a></p>
+                                                            <span class="price">
+                                                                <span>$279.99</span>
+                                                                <span class="fly-item"><span>2x</span></span>
+                                                            </span>
+                                                        </div>
+                                                        <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                    </li>
+                                                    <li class="item">
+                                                        <div class="thumbnail object-cover">
+                                                            <a href="#"><img src="assets/products/home3.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <p><a href="#">Modern Storage Cabinet with Door & 3 Drawers</a></p>
+                                                            <span class="price">
+                                                                <span>$279.99</span>
+                                                                <span class="fly-item"><span>1x</span></span>
+                                                            </span>
+                                                        </div>
+                                                        <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                    </li>
+                                                    <li class="item">
+                                                        <div class="thumbnail object-cover">
+                                                            <a href="#"><img src="assets/products/home4.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <p><a href="#">Vonanda Velvet Sofa Couch</a></p>
+                                                            <span class="price">
+                                                                <span>$279.99</span>
+                                                                <span class="fly-item"><span>1x</span></span>
+                                                            </span>
+                                                        </div>
+                                                        <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                    </li>
+                                                    <li class="item">
+                                                        <div class="thumbnail object-cover">
+                                                            <a href="#"><img src="assets/products/home5.jpg" alt=""></a>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <p><a href="#">Awesome Bed for a Couple</a></p>
+                                                            <span class="price">
+                                                                <span>$279.99</span>
+                                                                <span class="fly-item"><span>1x</span></span>
+                                                            </span>
+                                                        </div>
+                                                        <a href="" class="item-remove"><i class="ri-close-line"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="cart-footer">
+                                                <div class="subtotal">
+                                                    <p>Subtotal</p>
+                                                    <p><strong>$1,622.95</strong></p>
+                                                </div>
+                                                <div class="actions">
+                                                    <a href="./checkout.html" class="primary-button">Checkout</a>
+                                                    <a href="/Frontend/E-CommerceV1/cart.html" class="secondary-button">View Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -215,7 +302,7 @@
                                 <div class="dpt-head">
                                     <div class="main-text">All Departments</div>
                                     <div class="mini-text mobile-hide">Total 1059 Products</div>
-                                    <a href="" class="dpt-trigger mobile-hide"><i class="ri-menu-3-line ri-xl"></i></a>
+                                    <a href="#" class="dpt-trigger mobile-hide"><i class="ri-menu-3-line ri-xl"></i></a>
                                 </div>
                                 <div class="dpt-menu">
                                     <ul class="second-links">
@@ -494,7 +581,7 @@
                                             </ul>
                                         </div>
                                         <div class="media">
-                                            <div class="image"><a href="#"><img src="assets/products/apparel4.jpg" alt=""></a></div>
+                                            <div class="image"><a href="page-offer.html"><img src="assets/products/apparel4.jpg" alt=""></a></div>
                                             <div class="hoverable">
                                                 <ul>
                                                     <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
@@ -509,15 +596,15 @@
                                                 <div class="stars"></div>
                                                 <span class="mini-text">(2,548)</span>
                                             </div>
-                                            <h3 class="main-links"><a href="#">Happy Sailed Womens Summer Boho Floral</a></h3>
+                                            <h3 class="main-links"><a href="page-offer.html">Happy Sailed Womens Summer Boho Floral</a></h3>
                                             <div class="price">
                                                 <span class="current">$129.99</span>
                                                 <span class="normal mini-text">$189.98</span>
                                             </div>
-                                            <div class="stock mini-text">
+                                            <div class="stock mini-text" data-stock="4200">
                                                 <div class="qty">
+                                                    <span>Sold: <strong class="qty-sold">3459</strong></span>
                                                     <span>Stock: <strong class="qty-available">107</strong></span>
-                                                    <span>Sold: <strong class="qty-sold">3,459</strong></span>
                                                 </div>
                                                 <div class="bar">
                                                     <div class="available"></div>
@@ -530,7 +617,7 @@
                                 <div class="row products mini">
                                     <div class="item">
                                         <div class="media">
-                                            <div class="thumbnail object-cover"><a href="#"><img src="assets/products/shoe1.jpg" alt=""></a></div>
+                                            <div class="thumbnail object-cover"><a href="page-single.html"><img src="assets/products/shoe1.jpg" alt=""></a></div>
                                             <div class="hoverable">
                                                 <ul>
                                                     <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
@@ -545,7 +632,7 @@
                                                 <div class="stars"></div>
                                                 <span class="mini-text">(2,548)</span>
                                             </div>
-                                            <h3 class="main-links"><a href="#">Men Slip On Shoes Casual with Arch Support Insoles</a></h3>
+                                            <h3 class="main-links"><a href="page-single.html">Men Slip On Shoes Casual with Arch Support Insoles</a></h3>
                                             <div class="price">
                                                 <span class="current">$80.90</span>
                                                 <span class="normal mini-text">$119.90</span>
@@ -558,7 +645,7 @@
                                     </div>
                                     <div class="item">
                                         <div class="media">
-                                            <div class="thumbnail object-cover"><a href="#"><img src="assets/products/electronic1.jpg" alt=""></a></div>
+                                            <div class="thumbnail object-cover"><a href="page-single.html"><img src="assets/products/electronic1.jpg" alt=""></a></div>
                                             <div class="hoverable">
                                                 <ul>
                                                     <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
@@ -573,7 +660,7 @@
                                                 <div class="stars"></div>
                                                 <span class="mini-text">(2,548)</span>
                                             </div>
-                                            <h3 class="main-links"><a href="#">Men Slip On Shoes Casual with Arch Support Insoles</a></h3>
+                                            <h3 class="main-links"><a href="page-single.html">Men Slip On Shoes Casual with Arch Support Insoles</a></h3>
                                             <div class="price">
                                                 <span class="current">$80.90</span>
                                                 <span class="normal mini-text">$119.90</span>
@@ -587,7 +674,7 @@
                                     </div>
                                     <div class="item">
                                         <div class="media">
-                                            <div class="thumbnail object-cover"><a href="#"><img src="assets/products/electronic2.jpg" alt=""></a></div>
+                                            <div class="thumbnail object-cover"><a href="page-single.html"><img src="assets/products/electronic2.jpg" alt=""></a></div>
                                             <div class="hoverable">
                                                 <ul>
                                                     <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
@@ -602,7 +689,7 @@
                                                 <div class="stars"></div>
                                                 <span class="mini-text">(2,548)</span>
                                             </div>
-                                            <h3 class="main-links"><a href="#">Men Slip On Shoes Casual with Arch Support Insoles</a></h3>
+                                            <h3 class="main-links"><a href="page-single.html">Men Slip On Shoes Casual with Arch Support Insoles</a></h3>
                                             <div class="price">
                                                 <span class="current">$80.90</span>
                                                 <span class="normal mini-text">$119.90</span>
@@ -615,7 +702,7 @@
                                     </div>
                                     <div class="item">
                                         <div class="media">
-                                            <div class="thumbnail object-cover"><a href="#"><img src="assets/products/electronic4.jpg" alt=""></a></div>
+                                            <div class="thumbnail object-cover"><a href="page-single.html"><img src="assets/products/electronic4.jpg" alt=""></a></div>
                                             <div class="hoverable">
                                                 <ul>
                                                     <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
@@ -630,7 +717,7 @@
                                                 <div class="stars"></div>
                                                 <span class="mini-text">(2,548)</span>
                                             </div>
-                                            <h3 class="main-links"><a href="#">Men Slip On Shoes Casual with Arch Support Insoles</a></h3>
+                                            <h3 class="main-links"><a href="page-single.html">Men Slip On Shoes Casual with Arch Support Insoles</a></h3>
                                             <div class="price">
                                                 <span class="current">$80.90</span>
                                                 <span class="normal mini-text">$119.90</span>
@@ -646,7 +733,7 @@
                                 <div class="row products mini">
                                     <div class="item">
                                         <div class="media">
-                                            <div class="thumbnail object-cover"><a href="#"><img src="assets/products/apparel3.jpg" alt=""></a></div>
+                                            <div class="thumbnail object-cover"><a href="page-single.html"><img src="assets/products/apparel3.jpg" alt=""></a></div>
                                             <div class="hoverable">
                                                 <ul>
                                                     <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
@@ -661,7 +748,7 @@
                                                 <div class="stars"></div>
                                                 <span class="mini-text">(2,548)</span>
                                             </div>
-                                            <h3 class="main-links"><a href="#">Black Women's Coat Dress</a></h3>
+                                            <h3 class="main-links"><a href="page-single.html">Black Women's Coat Dress</a></h3>
                                             <div class="price">
                                                 <span class="current">$80.90</span>
                                                 <span class="normal mini-text">$119.90</span>
@@ -674,7 +761,7 @@
                                     </div>
                                     <div class="item">
                                         <div class="media">
-                                            <div class="thumbnail object-cover"><a href="#"><img src="assets/products/apparel6.jpg" alt=""></a></div>
+                                            <div class="thumbnail object-cover"><a href="page-single.html"><img src="assets/products/apparel6.jpg" alt=""></a></div>
                                             <div class="hoverable">
                                                 <ul>
                                                     <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
@@ -689,7 +776,7 @@
                                                 <div class="stars"></div>
                                                 <span class="mini-text">(2,548)</span>
                                             </div>
-                                            <h3 class="main-links"><a href="#">Black Women's Coat Dress</a></h3>
+                                            <h3 class="main-links"><a href="page-single.html">Black Women's Coat Dress</a></h3>
                                             <div class="price">
                                                 <span class="current">$80.90</span>
                                                 <span class="normal mini-text">$119.90</span>
@@ -702,7 +789,7 @@
                                     </div>
                                     <div class="item">
                                         <div class="media">
-                                            <div class="thumbnail object-cover"><a href="#"><img src="assets/products/apparel5.jpg" alt=""></a></div>
+                                            <div class="thumbnail object-cover"><a href="page-single.html"><img src="assets/products/apparel5.jpg" alt=""></a></div>
                                             <div class="hoverable">
                                                 <ul>
                                                     <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
@@ -717,7 +804,7 @@
                                                 <div class="stars"></div>
                                                 <span class="mini-text">(2,548)</span>
                                             </div>
-                                            <h3 class="main-links"><a href="#">Black Women's Coat Dress</a></h3>
+                                            <h3 class="main-links"><a href="page-single.html">Black Women's Coat Dress</a></h3>
                                             <div class="price">
                                                 <span class="current">$80.90</span>
                                                 <span class="normal mini-text">$119.90</span>
@@ -730,7 +817,7 @@
                                     </div>
                                     <div class="item">
                                         <div class="media">
-                                            <div class="thumbnail object-cover"><a href="#"><img src="assets/products/home1.jpg" alt=""></a></div>
+                                            <div class="thumbnail object-cover"><a href="page-single.html"><img src="assets/products/home1.jpg" alt=""></a></div>
                                             <div class="hoverable">
                                                 <ul>
                                                     <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
@@ -745,7 +832,7 @@
                                                 <div class="stars"></div>
                                                 <span class="mini-text">(2,548)</span>
                                             </div>
-                                            <h3 class="main-links"><a href="#">Black Women's Coat Dress</a></h3>
+                                            <h3 class="main-links"><a href="page-single.html">Black Women's Coat Dress</a></h3>
                                             <div class="price">
                                                 <span class="current">$80.90</span>
                                                 <span class="normal mini-text">$119.90</span>
@@ -1240,11 +1327,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" class="cart-trigger">
                                     <i class="ri-shopping-cart-line"></i>
                                     <span>Cart</span>
                                     <div class="fly-item">
-                                        <span class="item-number">0</span>
+                                        <span class="item-number">5</span>
                                     </div>
                                 </a>
                             </li>
