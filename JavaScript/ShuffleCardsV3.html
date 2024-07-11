@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShuffleCardsV3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            --w: 140px;
+            --gap: 20px;
+            --y: -130px;
+        }
+        .control {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .control button {
+            width: 90px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .container {
+            /* border: 1px solid #bdb7b7; */
+            width: calc(6*var(--w) + 5*var(--gap));
+            height: 2000px;
+            margin: 40px auto;
+            position: relative;
+        }
+        .card {
+            border: 1px solid #bdb7b7;
+            width: var(--w);
+            height: 220px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            top: 0px;
+            left: 400px;
+            transition: top 0.3s linear, left 0.3s linear, transform 0.5s linear;
+            transform-style: preserve-3d;
+        }
+        .move-0 {
+            top: calc(400px + var(--y));
+            left: calc(0*(var(--w) + var(--gap)));
+        }
+        .move-1 {
+            top: calc(400px + var(--y));
+            left: calc(1*(var(--w) + var(--gap)));
+        }
+        .move-2 {
+            top: calc(400px + var(--y));
+            left: calc(2*(var(--w) + var(--gap)));
+        }
+        .move-3 {
+            top: calc(400px + var(--y));
+            left: calc(3*(var(--w) + var(--gap)));
+        }
+        .move-4 {
+            top: calc(400px + var(--y));
+            left: calc(4*(var(--w) + var(--gap)));
+        }
+        .move-5 {
+            top: calc(400px + var(--y));
+            left: calc(5*(var(--w) + var(--gap)));
+        }
+        @media screen and (max-width: 975px) {
+            .container {
+                width: calc(3*var(--w) + 2*var(--gap));
+            }
+            .card {
+                left: 150px;
+            }
+            .move-0 {
+                top: calc(400px + var(--y));
+                left: calc(0*(var(--w) + var(--gap)));
+            }
+            .move-1 {
+                top: calc(400px + var(--y));
+                left: calc(1*(var(--w) + var(--gap)));
+            }
+            .move-2 {
+                top: calc(400px + var(--y));
+                left: calc(2*(var(--w) + var(--gap)));
+            }
+            .move-3 {
+                top: calc(620px + var(--y) + var(--gap));
+                left: calc(0*(var(--w) + var(--gap)));
+            }
+            .move-4 {
+                top: calc(620px + var(--y) + var(--gap));
+                left: calc(1*(var(--w) + var(--gap)));
+            }
+            .move-5 {
+                top: calc(620px + var(--y) + var(--gap));
+                left: calc(2*(var(--w) + var(--gap)));
+            }
+        }
+        @media screen and (max-width: 495px) {
+            .container {
+                width: calc(2*var(--w) + 1*var(--gap));
+            }
+            .card {
+                left: 75px;
+            }
+            .move-0 {
+                top: calc(400px + var(--y));
+                left: calc(0*(var(--w) + var(--gap)));
+            }
+            .move-1 {
+                top: calc(400px + var(--y));
+                left: calc(1*(var(--w) + var(--gap)));
+            }
+            .move-2 {
+                top: calc(620px + var(--y) + var(--gap));
+                left: calc(0*(var(--w) + var(--gap)));
+            }
+            .move-3 {
+                top: calc(620px + var(--y) + var(--gap));
+                left: calc(1*(var(--w) + var(--gap)));
+            }
+            .move-4 {
+                top: calc(840px + var(--y) + 2*var(--gap));
+                left: calc(0*(var(--w) + var(--gap)));
+            }
+            .move-5 {
+                top: calc(840px + var(--y) + 2*var(--gap));
+                left: calc(1*(var(--w) + var(--gap)));
+            }
+        }
+        @keyframes shuffle {
+            0% { 
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(150%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        .shuffle-card {
+            animation: shuffle 0.5s linear;
+        }
+        .flip-card {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            backface-visibility: hidden;
+            position: absolute;
+            border-radius: 10px;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .card .front {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotateY(180deg);
+        }
+        .card .back {
+            background-image: url("https://www.thairath.co.th/static/img/horoscope/tarot/tarot-card-back.jpg");
+            background-position: center center;
+            background-size: cover;
+            backface-visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="control">
+        <button class="fliped">1. Flipped</button>
+        <button class="supply">2. Supply</button>
+        <button class="shuffle">3. Shuffle</button>
+    </div>
+    
+
+    <div class="container">
+        <div class="card move-0" style="z-index: 5;">
+            <div class="front"><img src="../Multimedia/images/watermelon.png" width="70"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card move-1" style="z-index: 4;">
+            <div class="front"><img src="../Multimedia/images/grapes.png" width="70"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card move-2" style="z-index: 3;">
+            <div class="front"><img src="../Multimedia/images/orange.png" width="70"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card move-3" style="z-index: 2;">
+            <div class="front"><img src="../Multimedia/images/lemon.png" width="70"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card move-4" style="z-index: 1;">
+            <div class="front"><img src="../Multimedia/images/tomato.png" width="70"></div>
+            <div class="back"></div>
+        </div>
+        <div class="card move-5" style="z-index: 0;">
+            <div class="front"><img src="../Multimedia/images/pineapple.png" width="70"></div>
+            <div class="back"></div>
+        </div>
+    </div>
+    
+    <script>
+        const supplyEl = document.querySelector('.supply');
+        const shuffleEl = document.querySelector('.shuffle');
+        const flipedEl = document.querySelector('.fliped');
+        const cardEl = document.querySelectorAll('.card');
+
+        flipedEl.addEventListener('click', () => {
+            cardEl[0].classList.toggle('flip-card');
+            cardEl[1].classList.toggle('flip-card');
+            cardEl[2].classList.toggle('flip-card');
+            cardEl[3].classList.toggle('flip-card');
+            cardEl[4].classList.toggle('flip-card');
+            cardEl[5].classList.toggle('flip-card');
+        })
+        
+        supplyEl.addEventListener('click', () => {
+            setTimeout(() => cardEl[0].classList.toggle('move-0'), 1);
+            setTimeout(() => cardEl[1].classList.toggle('move-1'), 300);
+            setTimeout(() => cardEl[2].classList.toggle('move-2'), 600);
+            setTimeout(() => cardEl[3].classList.toggle('move-3'), 900);
+            setTimeout(() => cardEl[4].classList.toggle('move-4'), 1200);
+            setTimeout(() => cardEl[5].classList.toggle('move-5'), 1500);
+        });
+
+        function shuffle() {
+            setTimeout(() => cardEl[0].classList.add('shuffle-card'), 1);
+            setTimeout(() => cardEl[0].classList.remove('shuffle-card'), 500);
+
+            setTimeout(() => cardEl[1].classList.add('shuffle-card'), 300);
+            setTimeout(() => cardEl[1].classList.remove('shuffle-card'), 800);
+
+            setTimeout(() => cardEl[2].classList.add('shuffle-card'), 600);
+            setTimeout(() => cardEl[2].classList.remove('shuffle-card'), 1100);
+
+            setTimeout(() => cardEl[3].classList.add('shuffle-card'), 900);
+            setTimeout(() => cardEl[3].classList.remove('shuffle-card'), 1400);
+
+            setTimeout(() => cardEl[4].classList.add('shuffle-card'), 1200);
+            setTimeout(() => cardEl[4].classList.remove('shuffle-card'), 1700);
+
+            setTimeout(() => cardEl[5].classList.add('shuffle-card'), 1500);
+            setTimeout(() => cardEl[5].classList.remove('shuffle-card'), 2000);
+        }
+
+        shuffleEl.addEventListener('click', () => {
+            setTimeout(() => shuffle(), 1);
+            setTimeout(() => shuffle(), 1500);
+            setTimeout(() => shuffle(), 3000);
+        });
+
+        for(let i = 0; i < cardEl.length; i++) {
+            cardEl[i].addEventListener('click', () => {
+                cardEl[i].classList.toggle('flip-card');
+            });
+        }
+    </script>
+</body>
+</html>
