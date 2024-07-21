@@ -414,7 +414,7 @@
             rad_btn.classList.toggle('active-angle');
             deg_btn.classList.toggle('active-angle');
         }
-
+        
         // CLICK EVENT LISTENER
         input_element.addEventListener('click', event => {
             const target_btn = event.target;
@@ -532,20 +532,15 @@
 
             FACTORIAL_SEARCH_RESULT.forEach(factorial_index => {
                 let number = []; // current factorial number
-
                 let next_index = factorial_index + 1;
                 let next_input = formula[next_index];
-
                 if(next_input == FACTORIAL) {
                     factorial_sequence += 1;
                     return;
                 }
-
                 let first_factorial_index = factorial_index - factorial_sequence;
-                
                 let previous_index = first_factorial_index - 1;
                 let parentheses_count = 0;
-
                 while(previous_index >= 0) {
                     if(formula[previous_index] == '(') parentheses_count--;
                     if(formula[previous_index] == ')') parentheses_count++;
@@ -557,20 +552,16 @@
                     number.unshift(formula[previous_index]);
                     previous_index--;
                 }
-
                 let number_str = number.join('');
                 const factorial = 'factorial(';
                 const close_parenthesis = ')';
                 let times = factorial_sequence + 1;
-
                 let toReplace = number_str + FACTORIAL.repeat(times);
                 let replacement = factorial.repeat(times) + number_str + close_parenthesis.repeat(times);
-
                 numbers.push({
                     toReplace: toReplace,
                     replacement: replacement
                 });
-
                 // RESET factorial_sequence
                 factorial_sequence = 0;
             });

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormValidationV2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1f242d;
+            padding: 25px;
+        }
+        .container form {
+            width: 700px;
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+        }
+        form .row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .row .column {
+            flex: 1 1 250px;
+        }
+        .column .title {
+            font-size: 20px;
+            color: #333;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .column .input-box {
+            margin: 15px 0;
+        }
+        .input-box span {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* input style start */
+        .input-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        /* input style end */
+
+        .column .flex {
+            display: flex;
+            gap: 15px;
+        }
+        .flex .input-box {
+            margin-top: 5px;
+            width: 100%;
+        }
+        .input-box img {
+            /* border: 1px solid black; */
+            height: 34px;
+            margin-top: 5px;
+        }
+
+        /* button style start */
+        form .btn {
+            width: 100%;
+            cursor: pointer;
+            padding: 12px;
+            background: #8175d3;
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            font-size: 17px;
+            color: #fff;
+            margin-top: 20px;
+            transition: all 200ms ease;
+        }
+        form .btn:hover {
+            background: #6350dd;
+        }
+        form .btn:active {
+            transform: scale(0.98);
+        }
+        /* button style end */
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="row">
+                <div class="column">
+                    <h3 class="title">Billing Address</h3>
+                    <div class="input-box">
+                        <span>Full Name :</span>
+                        <input type="text" placeholder="Jacob Aiden">
+                    </div>
+                    <div class="input-box">
+                        <span>Email :</span>
+                        <input type="email" placeholder="example@example.com">
+                    </div>
+                    <div class="input-box">
+                        <span>Address :</span>
+                        <input type="text" placeholder="Room - Street - Locality">
+                    </div>
+                    <div class="input-box">
+                        <span>City :</span>
+                        <input type="text" placeholder="Berlin">
+                    </div>
+                    <div class="flex">
+                        <div class="input-box">
+                            <span>State :</span>
+                            <input type="text" placeholder="Germany">
+                        </div>
+                        <div class="input-box">
+                            <span>Zip Code :</span>
+                            <input type="number" placeholder="12345">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <h3 class="title">Payment</h3>
+                    <div class="input-box">
+                        <span>Cards Accepted :</span>
+                        <img src="../Multimedia/images/imgcards.png" alt="">
+                    </div>
+                    <div class="input-box">
+                        <span>Name On Card :</span>
+                        <input type="text" placeholder="Mr.Jacob Aiden">
+                    </div>
+                    <div class="input-box">
+                        <span>Credit Card Number :</span>
+                        <input type="text" placeholder="1111-2222-3333-4444">
+                    </div>
+                    <div class="input-box">
+                        <span>Exp. Month :</span>
+                        <input type="text" placeholder="August">
+                    </div>
+                    <div class="flex">
+                        <div class="input-box">
+                            <span>Exp Year :</span>
+                            <input type="number" placeholder="2025">
+                        </div>
+                        <div class="input-box">
+                            <span>CVV :</span>
+                            <input type="number" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>
