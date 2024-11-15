@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BootstrapWebV1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
+        * {
+            font-family: "IBM Plex Sans Thai", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">ตากล้องรักสยาม</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar1">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbar1" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a href="index.html" class="nav-link">หน้าแรก</a></li>
+                    <li class="nav-item"><a href="#service" class="nav-link">บริการ</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">เกี่ยวกับเรา</a></li>
+                    <li class="nav-item"><a href="#gallary" class="nav-link">ผลงานของเรา</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal">ติดต่องาน</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="slider">
+        <div class="carousel slide" data-bs-ride="carousel" id="mySlider">
+            <ol class="carousel-indicators">
+                <button data-bs-target="#mySlider" data-bs-slide-to="0" class="active"></button>
+                <button data-bs-target="#mySlider" data-bs-slide-to="1"></button>
+                <button data-bs-target="#mySlider" data-bs-slide-to="2"></button>
+                <button data-bs-target="#mySlider" data-bs-slide-to="3"></button>
+            </ol>
+            <div>
+                <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#mySlider">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#mySlider">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+            <div class="carousel-inner">
+                <div style="height: 700px; background: url('./images/a1.webp'); background-size: cover; background-position: center;" 
+                    class="carousel-item carousel-image-1 active">
+                    <div class="container">
+                        <div class="carousel-caption d-none d-sm-block">
+                            <h1>อ่างเก็บน้ำลำตะคอง เขายายเที่ยง , นครราชสีมา</h1>
+                            <p>บรรยากาศดีๆ ของสถานที่ท่องเที่ยวที่มีจุดชมวิวพระอาทิตย์ตกที่สวยงามมากแห่งหนึ่งของไทย กับทิวทัศน์จากบริเวณอ่างเก็บน้ำที่มองเห็นกังหันลมยักษ์</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 700px; background: url('./images/a2.webp'); background-size: cover; background-position: center;"
+                    class="carousel-item carousel-image-2">
+                    <div class="container">
+                        <div class="carousel-caption d-none d-sm-block">
+                            <h4>เสม็ดนางชี , พังงา</h4>
+                            <p>ภาพวิวแสนสวยงามและธรรมชาติอันกว้างไกล จากบนจุดชมวิวของเสม็ดนางชี ไม่ว่าใครเห็นก็ต้องหลงรัก</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 700px; background: url('./images/a3.webp'); background-size: cover; background-position: center;" 
+                    class="carousel-item carousel-image-3">
+                    <div class="container">
+                        <div class="carousel-caption d-none d-sm-block">
+                            <h4>อุทยานแห่งชาติดอยอินทนนท์, เชียงใหม่</h4>
+                            <p>อีกมุมหนึ่งของสถานที่ท่องเที่ยวสุดฮิตอย่างอุทยานแห่งชาติดอยอินทนนท์ กับเส้นทางศึกษาธรรมชาติในช่วงหน้าฝนที่ชุ่มชื้นและเขียวชะอุ่ม</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 700px; background: url('./images/a4.webp'); background-size: cover; background-position: center;" 
+                    class="carousel-item carousel-image-4">
+                    <div class="container">
+                        <div class="carousel-caption d-none d-sm-block">
+                            <h4>เกาะพีพี , กระบี่</h4>
+                            <p>สวรรค์ของคนรักทะเลจากทั่วโลก ไม่มีใครจะปฏิเสธทิวทัศน์ที่สวยงามของทะเลสีฟ้าใสและภูเขาสูงของหมู่เกาะกลางทะเลอันดามันแห่งนี้</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="service" class="py-5">
+         <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center mb-4 px-4">
+                    <i style="font-size: 40px" class="bi bi-person-circle"></i>
+                    <h3>ไกด์นำเที่ยว</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex dolorum fugit, iure velit est quibusdam sint aperiam consequuntur excepturi illum.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4 px-4">
+                    <i style="font-size: 40px" class="bi bi-camera-fill"></i>
+                    <h3>รับถ่ายภาพ</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore deleniti deserunt repudiandae repellendus sunt similique eligendi qui iusto vel quo.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4 px-4">
+                    <i style="font-size: 40px" class="bi bi-image"></i>
+                    <h3>ตกแต่งรูปภาพ</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur laborum beatae cupiditate dolorem tenetur culpa architecto praesentium alias nesciunt libero!</p>
+                </div>
+            </div>
+         </div>
+    </section>
+
+    <section id="about" class="text-center text-light pb-5" style="background: url(./images/a5.jpg); background-size: cover; background-position: top;">
+        <div class="dark-overlay">
+            <div class="row">
+                <div class="col">
+                    <div class="container pt-5">
+                        <h1>เกี่ยวกับเรา</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium eum ducimus laborum voluptas officiis. 
+                            Nostrum, voluptas exercitationem possimus quae debitis quis, optio architecto qui tempora consequuntur, 
+                            amet quibusdam. Impedit expedita omnis dolor ea et quae officia ratione animi exercitationem quidem?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallary" class="p-5">
+        <div class="container">
+            <h1 class="text-center">ผลงานของเรา</h1>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas id beatae delectus quis ipsum quidem, debitis repudiandae alias enim? Adipisci.</p>
+            <div class="row mb-4">
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1 object-fit-cover">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_668705185.jpg?resize=760,427" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_623629505.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1443849263.jpg?resize=760,528" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_642837745.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_679315927.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_232532107.jpg?resize=760,505" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_791916940.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1256070475.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1418440679.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_708856558.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1310545595.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1055816954.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1247659714.jpg?resize=760,508" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_392864701.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 p-1">
+                    <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_244288960.jpg?resize=760,507" class="h-100 w-100" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center p-4 bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col text-light">
+                    <p>Copyright &copy; Kanitnon Official 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ติดต่องาน</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="form-group mb-3">
+                            <label for="">อีเมล</label>
+                            <input type="text" class="form-control" placeholder="ป้อนอีเมลของคุณ">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="">หัวข้อ</label>
+                            <input type="text" class="form-control" placeholder="เสนอหัวข้องานของคุณ">
+                        </div>
+                        <div class="form-group">
+                            <label for="">รายละเอียด</label>
+                            <textarea class="form-control" cols="30" rows="10" placeholder="ระบุรายละเอียดงาน"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0">
+                    <button class="btn btn-success">ส่งข้อมูล</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>
