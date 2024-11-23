@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BootstrapWebV3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+        * {
+            font-family: "Nunito";
+        }
+        .btn-sm-square {
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* hero-header start */
+        .hero-header {
+            background: linear-gradient(rgba(20, 20, 31, 0.7), rgba(20, 20, 31, 0.7)), url("https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_668705185.jpg?resize=760,427");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* hero-header end */
+        
+
+        /* services start */
+        .service-item {
+            box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+            transition: 0.5s;
+        }
+        .service-item:hover {
+            background: var(--bs-gray-300);
+            cursor: pointer;
+        }
+        /* services end */
+
+
+        /* destination start */
+        .destination img {
+            transition: 0.5s;
+        }
+        .destination img:hover {
+            transform: scale(1.1);
+        }
+        /* destination end */
+
+
+        /* package-item start */
+        .package-item {
+            box-shadow: 0 0 45px rgba(0, 0, 0, 0.1);
+        }
+        .package-item img {
+            transition: 0.5s;
+        }
+        .package-item:hover img {
+            transform: scale(1.1);
+        }
+        /* package-item end */
+
+
+        /* booking start */
+        .booking {
+            background: linear-gradient(rgba(15, 23, 43, 0.7), rgba(15, 23, 43, 0.7)), url("https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_392864701.jpg?resize=760,507");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* booking end */
+
+
+        /* team start */
+        .team-item {
+            box-shadow: 0 0 45px rgba(0, 0, 0, 0.1);
+        }
+        .team-item img {
+            transition: 0.5s;
+        }
+        .team-item:hover img {
+            transform: scale(1.1);
+        }
+        .team-item .btn {
+            background: #fff;
+            color: var(--bs-primary);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border-bottom: 1px solid var(--bs-primary);
+        }
+        .team-item .btn:hover {
+            background: var(--bs-primary);
+            color: #fff;
+        }
+        /* team end */
+
+
+        /* testimonial start */
+        .testimonial-carousel::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 1)0%, rgba(255, 255, 255, 0)100%);
+            z-index: 1;
+        }
+        @media (min-width: 768px) {
+            .testimonial-carousel:before {
+                width: 200px;
+            }
+        }
+        .testimonial-carousel .owl-item .testimonial-item,
+        .testimonial-carousel .owl-item .testimonial-item * {
+            transition: 0.5s;
+        }
+        .testimonial-carousel .owl-item .testimonial-item {
+            background: var(--bs-primary) !important;
+            border-color: var(--bs-primary) !important;
+        }
+        .testimonial-carousel .owl-item .testimonial-item * {
+            color: #fff !important;
+        }
+        .testimonial-carousel .owl-dots {
+            margin-top: 24px;
+            display: flex;
+            align-items: flex-end;
+        }
+        /* testimonial end */
+
+
+        /* footer start */
+        .footer .btn.btn-social {
+            margin-right: 5px;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 35px;
+        }
+        .footer .btn.btn-link {
+            display: block;
+            margin-bottom: 5px;
+            padding: 0;
+            text-align: left;
+            color: #fff;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: 0.3s;
+        }
+        .footer .btn.btn-link:before {
+            position: relative;
+            content: "\f105";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+        .footer .btn.btn-link:hover {
+            letter-spacing: 1px;
+            box-shadow: none;
+        }
+        .footer .copyright {
+            padding: 25px 0;
+            font-size: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer .footer-menu a {
+            margin-right: 15px;
+            padding-right: 15px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer .footer-menu a:last-child {
+            margin-right: 0px;
+            padding-right: 0px;
+            border-right: none;
+        }
+        /* footer end */
+
+
+        /* navbar bottom start */
+        .navbar-light .navbar-nav .nav-link {
+            position: relative;
+            margin-right: 25px;
+            padding: 35px 0;
+            color: #fff !important;
+            font-size: 18px;
+            font-weight: 600;
+            transform: 0.5s;
+            outline: none;
+        }
+        @media (min-width: 992px) {
+            .navbar-light {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                z-index: 999;
+            }
+            .navbar-light .navbar-nav .nav-link::before {
+                position: absolute;
+                content: "";
+                width: 0;
+                height: 2px;
+                bottom: -1px;
+                left: 50%;
+                background: var(--bs-primary);
+                transition: 0.5s;
+            }
+            .navbar-light .navbar-nav .nav-link:hover::before,
+            .navbar-light .navbar-nav .nav-link:active::before {
+                width: calc(100% - 2px);
+                left: 1px;
+            }
+        }
+        @media (max-width: 991.98px) {
+            .navbar-light .navbar-collapse {
+                margin-top: 15px;
+                border-top: 1px solid #dddddd;
+            }
+            .navbar-light .navbar-nav .nav-link {
+                padding: 10px 0;
+                margin-left: 0;
+                color: var(--dark) !important;
+            }
+        }
+        /* navbar bottom end */
+    </style>
+</head>
+<body>
+    <!-- navbar top start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light">
+                        <i class="fa fa-map-marked-alt me-2"></i> 123 Street, New Youk, USA
+                    </small>
+                    <small class="me-3 text-light">
+                        <i class="fa fa-phone-alt me-2"></i> +91 7695 4563 87
+                    </small>
+                    <small class="me-3 text-light">
+                        <i class="fa fa-envelope-open me-2"></i> info@example.com
+                    </small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px">
+                    <a href="#" class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2">
+                        <i class="fab fa-twitter fw-normal"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2">
+                        <i class="fab fa-facebook-f fw-normal"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2">
+                        <i class="fab fa-youtube fw-normal"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2">
+                        <i class="fab fa-linkedin-in fw-normal"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2">
+                        <i class="fab fa-instagram fw-normal"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- navbar top end -->
+
+
+    <!-- hero start -->
+    <div class="container-floid position-relative p-0">
+        <!-- navber bottom start -->
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="#" class="navbar-brand p-0">
+                <h1 class="text-light m-0"><i class="fa-solid fa-file-invoice-dollar"></i> LookAccount</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="#" class="nav-item nav-link active">Home</a>
+                    <a href="#" class="nav-item nav-link">About</a>
+                    <a href="#" class="nav-item nav-link">Services</a>
+                    <a href="#" class="nav-item nav-link">Packages</a>
+                    <a href="#" class="nav-item nav-link">Contact</a>
+                </div>
+                <button class="btn btn-primary rounded-pill py-2 px-4 fw-bold">Login</button>
+            </div>
+        </nav>
+        <!-- navber bottom end -->
+        <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+            <div class="container py-5">
+                <div class="row justify-content-center py-5">
+                    <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                        <h1 class="display-3 fw-bold text-white mb-3">Enjoy Your Vacation With Us</h1>
+                        <p class="fs-4 text-white mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit inventore, soluta rem repellat.</p>
+                        <div class="position-relative w-75 mx-auto">
+                            <input type="text" class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" placeholder="Eg: London">
+                            <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- hero end -->
+
+
+    <!-- about start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6" style="min-height: 400px;">
+                    <div class="position-relative h-100 border">
+                        <img src="https://personalexcellence.co/files/ceo.jpg" alt="" class="img-fluid position-absolute w-100 h-100 object-fit-cover">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                    <h1 class="mb-4 fw-bold">Welcome to <span class="text-primary">Tourist</span></h1>
+                    
+                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ut dolores facere impedit facilis voluptate?</p>
+                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error neque, unde alias tenetur totam. Labore optio fugiat libero? Ad.</p>
+                    
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Frist Class Flights</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>5 Star Accommodations</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City Tours</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Handpicked Hotels</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest Model Vehicles</p>
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                        </div>
+                    </div>
+
+                    <div class="btn btn-primary py-3 px-5 mt-2 rounded-0">Read More</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about end -->
+
+
+    <!-- service start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center">
+                <div class="section-title bg-white text-center text-primary px-3">Services</div>
+                <h1 class="mb-5 fw-bold">Our Services</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5>WorldWide Toures</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit quibusdam recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+                            <h5>Hotel Reservation</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit quibusdam recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-user text-primary mb-4"></i>
+                            <h5>Travel Guides</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit quibusdam recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-cog text-primary mb-4"></i>
+                            <h5>Event Management</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit quibusdam recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5>WorldWide Toures</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit quibusdam recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+                            <h5>Hotel Reservation</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit quibusdam recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-user text-primary mb-4"></i>
+                            <h5>Travel Guides</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit quibusdam recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-cog text-primary mb-4"></i>
+                            <h5>Event Management</h5>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit quibusdam recusandae.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- service end -->
+
+
+    <!-- destination start -->
+    <div class="container-xxl py-5 destination">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-primary px-3">Destination</h6>
+                <h1 class="mb-5 fw-bold">Popular Destination</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12">
+                            <a href="#" class="d-block position-relative overflow-hidden" style="height: 280px;">
+                                <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1443849263.jpg?resize=760,528" alt="" class="w-100 h-100" style="object-fit: cover;">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">30% OFF</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Thailand</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <a href="#" class="d-block position-relative overflow-hidden" style="height: 280px;">
+                                <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_642837745.jpg?resize=760,507" alt="" class="w-100 h-100" style="object-fit: cover;">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">50% OFF</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Ubon Ratchathani</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <a href="#" class="d-block position-relative overflow-hidden" style="height: 280px;">
+                                <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_679315927.jpg?resize=760,507" alt="" class="w-100 h-100" style="object-fit: cover;">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">25% OFF</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Chiang Rai</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <a href="#" class="d-block position-relative h-100 overflow-hidden" style="min-height: 280px;">
+                        <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1418440679.jpg?resize=760,507" alt="" class="w-100 h-100" style="object-fit: cover;">
+                        <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">20% OFF</div>
+                        <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Sukhothai</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- destination end -->
+
+
+    <!-- package start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-primary px-3">Packages</h6>
+                <h1 class="mb-5 fw-bold">Awesome Packages</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-item">
+                        <div class="overflow-hidden">
+                            <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_708856558.jpg?resize=760,507" alt="" class="img-fluid">
+                        </div>
+                        <div class="d-flex border-bottom">
+                            <small class="flex-fill text-center border-end py-2">
+                                <i class="fa fa-map-marker-alt text-primary me-2"></i> Thailand
+                            </small>
+                            <small class="flex-fill text-center border-end py-2">
+                                <i class="fa fa-calendar-alt text-primary me-2"></i> 3 days
+                            </small>
+                            <small class="flex-fill text-center py-2">
+                                <i class="fa fa-user text-primary me-2"></i> 2 Person
+                            </small>
+                        </div>
+                        <div class="text-center p-4">
+                            <h3 class="mb-0">$149.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem soluta corrupti dolores.</p>
+                            <div class="d-flex justify-content-center mb-2 gap-1">
+                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-item">
+                        <div class="overflow-hidden">
+                            <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1310545595.jpg?resize=760,507" alt="" class="img-fluid">
+                        </div>
+                        <div class="d-flex border-bottom">
+                            <small class="flex-fill text-center border-end py-2">
+                                <i class="fa fa-map-marker-alt text-primary me-2"></i> Thailand
+                            </small>
+                            <small class="flex-fill text-center border-end py-2">
+                                <i class="fa fa-calendar-alt text-primary me-2"></i> 3 days
+                            </small>
+                            <small class="flex-fill text-center py-2">
+                                <i class="fa fa-user text-primary me-2"></i> 2 Person
+                            </small>
+                        </div>
+                        <div class="text-center p-4">
+                            <h3 class="mb-0">$165.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem soluta corrupti dolores.</p>
+                            <div class="d-flex justify-content-center mb-2 gap-1">
+                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="package-item">
+                        <div class="overflow-hidden">
+                            <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1055816954.jpg?resize=760,507" alt="" class="img-fluid">
+                        </div>
+                        <div class="d-flex border-bottom">
+                            <small class="flex-fill text-center border-end py-2">
+                                <i class="fa fa-map-marker-alt text-primary me-2"></i> Thailand
+                            </small>
+                            <small class="flex-fill text-center border-end py-2">
+                                <i class="fa fa-calendar-alt text-primary me-2"></i> 3 days
+                            </small>
+                            <small class="flex-fill text-center py-2">
+                                <i class="fa fa-user text-primary me-2"></i> 2 Person
+                            </small>
+                        </div>
+                        <div class="text-center p-4">
+                            <h3 class="mb-0">$182.00</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                            </div>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem soluta corrupti dolores.</p>
+                            <div class="d-flex justify-content-center mb-2 gap-1">
+                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- package end -->
+
+
+    <!-- booking start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="booking p-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-6 text-white">
+                        <h6 class="text-uppercase">Booking</h6>
+                        <h1 class="mb-4 fw-bold">Online Booking</h1>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae sed provident suscipit omnis deleniti id!</p>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa repellendus alias hic in quia aliquam deleniti minus ullam quibusdam ratione. Magnam fugiat officia consequuntur pariatur!</p>
+                        <a href="#" class="btn btn-outline-light py-3 px-5 mt-2 rounded-0">Read More</a>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="text-white mb-4 fw-bold">Book A Tour</h1>
+                        <form action="">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-transparent rounded-0 text-white" id="name" placeholder="Your Name">
+                                        <label for="name" class="text-white">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-transparent rounded-0 text-white" id="email" placeholder="Your Email">
+                                        <label for="email" class="text-white">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating" id="date3">
+                                        <input type="date" class="form-control bg-transparent rounded-0 text-white" id="datetime">
+                                        <label for="datetime" class="text-white">Date & Time</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select id="select1" class="form-select bg-transparent rounded-0 text-white">
+                                            <option class="text-dark" selected> -- please seclect destination --</option>
+                                            <option class="text-dark" value="1">Rayong</option>
+                                            <option class="text-dark" value="2">Ubon Ratchathani</option>
+                                            <option class="text-dark" value="3">Chiang Rai</option>
+                                            <option class="text-dark" value="4">Sukhothai</option>
+                                        </select>
+                                        <label for="select1" class="text-white">Destination</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control bg-transparent rounded-0 text-white" placeholder="Leave a comment here" id="message" style="height: 100px"></textarea>
+                                        <label for="message" class="text-white">Comments</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-outline-light w-100 py-3 rounded-0">Book Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- booking end -->
+
+
+    <!-- process start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center pb-4">
+                <h6 class="section-title bg-white text-primary px-3">Process</h6>
+                <h1 class="mb-5 fw-bold">3 Easy Steps</h1>
+            </div>
+            <div class="row gy-5 gx-4">
+                <div class="col-lg-4 col-sm-6 text-center pt-4">
+                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                            <i class="fa fa-globe fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mt-4 fw-bold">Choose A Destination</h5>
+                        <hr class="w-50 mx-auto mt-3 text-primary">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem libero officia sed dolores, molestias fugit nihil laudantium!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center pt-4">
+                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                            <i class="fa fa-dollar-sign fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mt-4 fw-bold">Pay Online</h5>
+                        <hr class="w-50 mx-auto mt-3 text-primary">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem libero officia sed dolores, molestias fugit nihil laudantium!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center pt-4">
+                    <div class="position-relative border border-primary pt-5 pb-4 px-4">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
+                            <i class="fa fa-plane fa-3x text-white"></i>
+                        </div>
+                        <h5 class="mt-4 fw-bold">Fly Today</h5>
+                        <hr class="w-50 mx-auto mt-3 text-primary">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem libero officia sed dolores, molestias fugit nihil laudantium!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- process end -->
+
+
+    <!-- team start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-primary px-3">Travel Guide</h6>
+                <h1 class="mb-5 fw-bold">Meet Our Guide</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="overflow-hidden" style="height: 300px;">
+                            <img src="https://p16-va.lemon8cdn.com/tos-alisg-v-a3e477-sg/6709a7c5a84a4b5ba38f2d0dd1968272~tplv-tej9nj120t-origin.webp" alt="" class="img-fluid">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center gap-1" style="margin-top: -19px;">
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0 fw-bold">Full Name</h5>
+                            <small>Destination</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="overflow-hidden" style="height: 300px;">
+                            <img src="https://p16-va.lemon8cdn.com/tos-alisg-v-a3e477-sg/oUzvDfeJ9ExQIMvJqAlgFCd8EHtLEAZZCBnALq~tplv-tej9nj120t-origin.webp" alt="" class="img-fluid">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center gap-1" style="margin-top: -20px;">
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0 fw-bold">Full Name</h5>
+                            <small>Destination</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="overflow-hidden" style="height: 300px;">
+                            <img src="https://lh3.googleusercontent.com/proxy/hCdexAfc3MVYKZaHqM6-aqVSB12LLjs64vLOm-k5T5xfo3Q6khalV3gn4mmlMI-qhJAjPTUxxVZEnnJIQC5G2dimPp9x9A5piHn9_kroyIEbb1l9NOPAL-l9DYhhtddA16ZnUb0" alt="" class="w-100" style="object-fit: cover;">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center gap-1" style="margin-top: -20px;">
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0 fw-bold">Full Name</h5>
+                            <small>Destination</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="overflow-hidden" style="height: 300px;">
+                            <img src="https://p16-va.lemon8cdn.com/tos-alisg-v-a3e477-sg/ba9627d424bc4c9ca5c4eb57a81e37d7~tplv-tej9nj120t-origin.webp" alt="" class="h-100 w-100" style="object-fit: cover;">
+                        </div>
+                        <div class="position-relative d-flex justify-content-center gap-1" style="margin-top: -20px;">
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="btn btn-square mx-1">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0 fw-bold">Full Name</h5>
+                            <small>Destination</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- team end -->
+
+
+    <!-- testimonial start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-primary px-3">Testimonial</h6>
+                <h1 class="mb-5 fw-bold">Our Clients Say!!!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img src="https://cdn.pixabay.com/photo/2023/06/10/07/18/business-8053376_640.jpg" alt="" class="bg-white rounded-circle shadow p-1 mx-auto mb-3" width="80px" height="80px" style="object-fit: cover;">
+                    <h5 class="mb-0 fw-bold">John Doe</h5>
+                    <p>New York, USA</p>
+                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique recusandae sequi placeat odit hic eos.</p>
+                </div>
+                <!-- <div class="testimonial-item bg-white text-center border p-4">
+                    <img src="https://cdn.pixabay.com/photo/2023/06/10/07/18/business-8053376_640.jpg" alt="" class="bg-white rounded-circle shadow p-1 mx-auto mb-3" width="80px" height="80px" style="object-fit: cover;">
+                    <h5 class="mb-0 fw-bold">John Doe</h5>
+                    <p>New York, USA</p>
+                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique recusandae sequi placeat odit hic eos.</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img src="https://cdn.pixabay.com/photo/2023/06/10/07/18/business-8053376_640.jpg" alt="" class="bg-white rounded-circle shadow p-1 mx-auto mb-3" width="80px" height="80px" style="object-fit: cover;">
+                    <h5 class="mb-0 fw-bold">John Doe</h5>
+                    <p>New York, USA</p>
+                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique recusandae sequi placeat odit hic eos.</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img src="https://cdn.pixabay.com/photo/2023/06/10/07/18/business-8053376_640.jpg" alt="" class="bg-white rounded-circle shadow p-1 mx-auto mb-3" width="80px" height="80px" style="object-fit: cover;">
+                    <h5 class="mb-0 fw-bold">John Doe</h5>
+                    <p>New York, USA</p>
+                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique recusandae sequi placeat odit hic eos.</p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- testimonial end -->
+
+
+    <!-- footer start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5">
+        <div class="conteiner py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3 fw-bold">Company</h4>
+                    <a href="#" class="btn btn-link">About Us</a>
+                    <a href="#" class="btn btn-link">Contact Us</a>
+                    <a href="#" class="btn btn-link">Privacy Policy</a>
+                    <a href="#" class="btn btn-link">Terms & Condition</a>
+                    <a href="#" class="btn btn-link">FAQs & Help</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3 fw-bold">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 8760 9875 65</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a href="#" class="btn btn-outline-light btn-social">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-social">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-social">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-social">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Gallery</h4>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_244288960.jpg?resize=760,507" alt="" class="img-fluid bg-light p-1">
+                        </div>
+                        <div class="col-4">
+                            <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_392864701.jpg?resize=760,507" alt="" class="img-fluid bg-light p-1">
+                        </div>
+                        <div class="col-4">
+                            <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1247659714.jpg?resize=760,508" alt="" class="img-fluid bg-light p-1">
+                        </div>
+                        <div class="col-4">
+                            <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1055816954.jpg?resize=760,507" alt="" class="img-fluid bg-light p-1">
+                        </div>
+                        <div class="col-4">
+                            <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_1310545595.jpg?resize=760,507" alt="" class="img-fluid bg-light p-1">
+                        </div>
+                        <div class="col-4">
+                            <img src="https://www.shutterstock.com/th/blog/wp-content/uploads/sites/16/2019/08/shutterstock_708856558.jpg?resize=760,507" alt="" class="img-fluid bg-light p-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3 fw-bold">Newsletter</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia neque, tempore sit voluptatibus numquam at.</p>
+                    <div class="position-relative" style="max-width: 400px;">
+                        <input type="text" class="form-control border-primary w-100 py-3 pe-5 rounded-0" placeholder="Your Email">
+                        <button class="btn btn-primary rounded-0 py-2 position-absolute top-0 end-0 mt-2 me-2" type="button">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#" class="text-decoration-none text-white">Your Site Name, | All Right Reserver. Designed By Coding Home</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="" class="text-decoration-none text-white">Home</a>
+                            <a href="" class="text-decoration-none text-white">Cookies</a>
+                            <a href="" class="text-decoration-none text-white">Help</a>
+                            <a href="" class="text-decoration-none text-white">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer end -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        // (function ($) {
+        //     "use strict"
+
+        //     // testimonial-carousel
+
+        //     $(".testimonial-carousel").owlCarousel({
+        //         autoplay: true,
+        //         smartSpeed: 1000,
+        //         center: true,
+        //         margin: 24,
+        //         dots: true,
+        //         loop: true,
+        //         nav: false,
+        //         responsive: {
+        //             0: {
+        //                 items: 1
+        //             },
+        //             800: {
+        //                 items: 2
+        //             }
+        //         }
+        //     });
+        // })(jQuery);
+    </script>
+</body>
+</html>
